@@ -1,4 +1,4 @@
-mobileappswithHTML5
+Creating Mobile Applications With HTML, CSS and JavaScript
 ===================
 
-My "Creating Mobile Applications with HTML5, CSS3 and JavaScript" presentation slides
+Slides and sample project for my mobile apps with HTML talk. This slide deck is done in Reveal.js.
