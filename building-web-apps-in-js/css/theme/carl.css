@@ -1,21 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 /**
- * Sky theme for reveal.js.
+ * Dark Carl theme for reveal.js.
+ * Created by Carl Bergenhem
  *
- * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ * Modified from Sky theme for reveal.js
+ * 
  */
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 body {
-  /*background: #add9e4;
-  background: -moz-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f7fbfc), color-stop(100%, #add9e4));
-  background: -webkit-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -o-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: -ms-radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);
-  background: radial-gradient(center, circle cover, #f7fbfc 0%, #add9e4 100%);*/
   background-color: #2B2E36; }
 
 .reveal {
@@ -95,31 +90,31 @@ body {
  *********************************************/
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #C45A3B; }
+  border-right-color: #D1B993; }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #C45A3B; }
+  border-left-color: #D1B993; }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #C45A3B; }
+  border-bottom-color: #D1B993; }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #C45A3B; }
+  border-top-color: #D1B993; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #D1B993; }
+  border-right-color: #C45A3B; }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #D1B993; }
+  border-left-color: #C45A3B; }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #D1B993; }
+  border-bottom-color: #C45A3B; }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #D1B993; }
+  border-top-color: #C45A3B; }
 
 /*********************************************
  * PROGRESS BAR
@@ -128,7 +123,7 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #3b759e;
+  background: #D1B993;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
