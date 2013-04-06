@@ -95,31 +95,31 @@ body {
  *********************************************/
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #3b759e; }
+  border-right-color: #C45A3B; }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #3b759e; }
+  border-left-color: #C45A3B; }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #3b759e; }
+  border-bottom-color: #C45A3B; }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #3b759e; }
+  border-top-color: #C45A3B; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #74a7cb; }
+  border-right-color: #D1B993; }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #74a7cb; }
+  border-left-color: #D1B993; }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #74a7cb; }
+  border-bottom-color: #D1B993; }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #74a7cb; }
+  border-top-color: #D1B993; }
 
 /*********************************************
  * PROGRESS BAR
