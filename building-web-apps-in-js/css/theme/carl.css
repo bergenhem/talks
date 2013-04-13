@@ -25,6 +25,10 @@ body {
   background: #FFE2B3;
   text-shadow: none; }
 
+.excitement {
+  color: red;
+}
+
 /*********************************************
  * HEADERS
  *********************************************/
@@ -44,6 +48,10 @@ body {
 
 .reveal h1 {
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
+
+.reveal h3 {
+  color: #FFFFFF;
+}
 
 /*********************************************
  * LINKS
