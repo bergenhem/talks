@@ -107,9 +107,9 @@
 				<section>
 					<h2><p>UI Framework:</p></h2><h3><p>Kendo UI</p></h3>
 				</section>
-				<section>
+				<!--<section>
 					<h2><p>Database:</p></h2><h3><p>MongoDB</p></h3>
-				</section>
+				</section>-->
 				<section>
 					<section>
 						<h2>Node.JS</h2>
@@ -170,21 +170,47 @@ http.createServer(function (req, res) {
 					</h2>
 				</section>
 				<section>
-					<!--
-						- Talk about the libraries used
-							- NodeJS
-							- ExpressJS
-							- Kendo UI
-							- MongoDB(?)
-						- For each one, talk about why they're good
-							- NodeJS: True Async, JS on the server, can read from file system, mention how it works (V8 engine)
-							- ExpressJS: Easy web server setup with routing,
-							- Kendo UI: Super easy UI creation
-						- While talking about each one, show examples of how to install and use it - and build the app
-							- NodeJS: quick simple web server
-							- ExpressJS: very small sample app, talk about folder structure. Add to app and make basic API setup
-							- Kendo UI: show to to create simple widgets - work with API previously set up
-					-->
+					<section>
+						<h2>ExpressJS</h2>
+					</section>
+					<section>
+						<h3>Web App Framework for Node.JS</h3>
+					</section>
+					<section>
+						<h3>Extends the Node.JS framework</h3>
+					</section>
+					<section>
+						<h3>Simple way of handling routes</h3>
+					</section>
+					<section>
+						<h3>Quick and easy setup &amp; configuration</h3>
+					</section>
+					<section>
+						<h3>Built-in view templates (Jade)</h3>
+					</section>
+					<section>
+						<h3><span class="excitement">You</span> decide the structure</h3>
+					</section>
+				</section>
+				<section>
+					<h2>Quick Express.JS Setup</h2>
+					<p>
+						<pre><code>
+var express = require('express');
+
+var app = express();
+
+app.get('/request', function(req, res) {
+	console.log('We got a request!');
+});
+
+app.listen(3000);
+console.log('Listening on port 3000...');
+						</code></pre>
+					</p>
+				</section>
+				<section>
+					<h2>Let's express-ify our app!</h2>
 				</section>
 				<section>
 					<section>
@@ -239,7 +265,7 @@ http.createServer(function (req, res) {
 					</p>
 				</section>
 				<section>
-					<h2>Let's create our UI</h2>
+					<h2>Time to slap some UI on this thing</h2>
 				</section>
 				<section>
 					<h2>That's it!</h2>
