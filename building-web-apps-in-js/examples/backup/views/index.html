@@ -36,15 +36,21 @@
 						read: {
 							url: "/allgames",
 							dataType: "json"
-						},
-						create: {
-							url: "/insertgame",
-							dataType: "json"
+						}
+					},
+					schema: {
+						model: {
+							id: "id",
+							fields: {
+								id: { type: "number" },
+								title: { type: "string" },
+								platform: { type: "string" },
+								releaseYear: { type: "number" }
+							}
 						}
 					}
 				},
 				editable: "inline",
-				toolbar: [ "create" ],
 				columns: [{
 					field: "id",
 					title: "ID",

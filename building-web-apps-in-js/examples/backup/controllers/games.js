@@ -14,10 +14,10 @@ exports.getAllGames = function(req, res) {
 
 exports.addGame = function(req, res) {
 	var passedGame = req.body;
+
+	console.log('Passed Item:\n' + JSON.stringify(passedGame));
 	
-	games.push(passedGame);
-	
-	console.log("New All games:\n" + JSON.stringify(games));
+	console.log('\nNew All games:\n' + JSON.stringify(games));
 
 	res.writeHead(201, 'Created', {'content-type': 'application/json'});
 	res.end();
