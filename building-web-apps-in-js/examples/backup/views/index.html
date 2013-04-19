@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<title>FITC Sample App</title>
+	<script src="/scripts/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="/scripts/kendo.web.js" type="text/javascript"></script>
+
+	<link href="/styles/kendo.common.css" rel="stylesheet" />
+	<link href="/styles/kendo.default.css" rel="stylesheet" />
+</head>
+<body>
+
+	<div id="grid"></div>
+
+	<script type="text/javascript">
+		$(function() {
+			$("#grid").kendoGrid({
+				dataSource: {
+					transport: {
+						read: {
+							url: "/allgames",
+							dataType: "json"
+						},
+						create: {
+							url: "/insertgame",
+							dataType: "json"
+						}
+					}
+				},
+				editable: "inline",
+				toolbar: [ "create" ],
+				columns: [{
+					field: "id",
+					title: "ID",
+					width: 50
+				},
+				{
+					field: "title",
+					title: "Video Game Title"
+				},
+				{
+					field: "platform",
+					title: "Platform",
+					width: 200
+				},
+				{
+					field: "releaseYear",
+					title: "Released",
+					width: 150
+				}]
+			});
+		});
+	</script>
+</body>
+</html>
