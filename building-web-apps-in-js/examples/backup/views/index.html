@@ -11,10 +11,25 @@
 </head>
 <body>
 
+	<ul id="menu">
+		<li>Home</li>
+		<li>Products
+			<ul>
+				<li>XBOX 360</li>
+				<li>PS3</li>
+				<li>Wii U</li>
+			</ul>
+		</li>
+		<li>About</li>
+	</ul>
+
 	<div id="grid"></div>
 
 	<script type="text/javascript">
 		$(function() {
+
+			$("#menu").kendoMenu();
+
 			$("#grid").kendoGrid({
 				dataSource: {
 					transport: {
