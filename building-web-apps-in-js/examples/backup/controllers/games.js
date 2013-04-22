@@ -9,12 +9,12 @@ var games = [
 
 
 exports.getAllGames = function(req, res) {
-	res.writeHead(200, 'OK', {'content-type': 'application/json'});
+/*	res.writeHead(200, 'OK', {'content-type': 'application/json'});
 	res.write(JSON.stringify(games));
-	res.end();
+	res.end();*/
 
 
-/*	GameModel.find({ }, function(err, foundGames) {
+	GameModel.find({ }, function(err, foundGames) {
 		if(err) {
 			console.log('Error in getting all items:\n' + err);
 			res.writeHead(404, 'Not Found', {'content-type': 'application/json'});
@@ -31,12 +31,12 @@ exports.getAllGames = function(req, res) {
 				res.end();
 			}
 		}
-	});*/
+	});
 
 }
 
 exports.addGame = function(req, res) {
-	var passedGame = req.body;
+/*	var passedGame = req.body;
 
 	console.log('Passed Item:\n' + JSON.stringify(passedGame));
 
@@ -45,9 +45,9 @@ exports.addGame = function(req, res) {
 	console.log('\nNew All games:\n' + JSON.stringify(games));
 
 	res.writeHead(201, 'Created', {'content-type': 'application/json'});
-	res.end();
+	res.end();*/
 
-/*	var sampleDataContext = new GameModel();
+	var sampleDataContext = new GameModel();
 
 	console.log('passedGame:\n' + JSON.stringify(req.body));
 	console.log('test:\n' + passedGame.id);
@@ -69,5 +69,5 @@ exports.addGame = function(req, res) {
 			res.writeHead(201, 'Created', {'content-type': 'application/json'});
 			res.end();
 		}
-	});*/
+	});
 }
