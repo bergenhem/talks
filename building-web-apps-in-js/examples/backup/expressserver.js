@@ -40,4 +40,4 @@ console.log('Listening on port 1337...');
 
 //curl -i GET -H "application/json" http://localhost:1337/allgames
 
-//curl -X POST -H "application/json" -d '{ "id" : "4", "title" : "Dead Space 3", "platform" : "XBOX 360", "releaseYear" : "2013"  }' http://localhost:1337/insertgame
+//curl -i -X POST -H 'content-type: application/json' http://localhost:1337/insertgame -d '{ "id": "4", "title": "Dead Space 3", "platform": "XBOX 360" }'
