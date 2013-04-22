@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<title>FITC Sample App</title>
+	<script src="/scripts/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="/scripts/kendo.web.js" type="text/javascript"></script>
+
+	<link href="/styles/kendo.common.css" rel="stylesheet" />
+	<link href="/styles/kendo.default.css" rel="stylesheet" />
+	<link href="/styles/example.css" rel="stylesheet" />
+</head>
+<body>
+
+	<ul id="menu">
+		<li>Home</li>
+		<li>Products
+			<ul>
+				<li>XBOX 360</li>
+				<li>PS3</li>
+				<li>Wii U</li>
+			</ul>
+		</li>
+		<li>About</li>
+	</ul>
+
+	<div id="grid"></div>
+
+	<script type="text/javascript">
+		$(function() {
+
+			$("#menu").kendoMenu();
+
+			$("#grid").kendoGrid({
+				dataSource: {
+					transport: {
+						read: {
+							url: "/allgames",
+							dataType: "json"
+						}
+					},
+					schema: {
+						model: {
+							id: "id",
+							fields: {
+								id: { type: "number" },
+								title: { type: "string" },
+								platform: { type: "string" },
+								releaseYear: { type: "number" }
+							}
+						}
+					}
+				},
+				editable: "inline",
+				columns: [{
+					field: "id",
+					title: "ID",
+					width: 50
+				},
+				{
+					field: "title",
+					title: "Video Game Title"
+				},
+				{
+					field: "platform",
+					title: "Platform",
+					width: 200
+				},
+				{
+					field: "releaseYear",
+					title: "Released",
+					width: 150
+				}]
+			});
+		});
+	</script>
+</body>
+</html>

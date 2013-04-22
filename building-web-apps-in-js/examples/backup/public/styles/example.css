@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: url('fonts/OpenSans-Regular-webfont.eot');
+    src: url('fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/OpenSans-Regular-webfont.woff') format('woff'),
+         url('fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+         url('fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+	font-family: 'OpenSans', Helvetica;
+	font-size: 12px;
+}
+
+ul#menu {
+	margin: 0px 0px 30px 0px;
+}

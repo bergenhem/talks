@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Building a Web App in 100% JavaScript</title>
+
+		<meta name="description" content="A presentation covering how to create web applications using Node.js, Express.js, and Kendo UI">
+		<meta name="author" content="Carl Bergenhem">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/carl.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>Building a Web App in 100% JavaScript</h1>
+					<h3>Using Node.js, Express.js, and Kendo UI</h3>
+					<p>
+						<a href="http://www.carlbergenhem.com" target="_blank">Carl Bergenhem</a> - <a href="http://twitter.com/carlbergenhem" target="_blank">@carlbergenhem</a>
+					</p>
+				</section>
+				<section>
+					<section>
+						<h2>Who Am I?</h2>
+					</section>
+					<section>
+						<h3>Carl Bergenhem</h3>
+					</section>
+					<section>
+						<h3>Manager of Solutions Consultant Team <a href="http://www.telerik.com" target="_blank">@Telerik</a></h3>
+					</section>
+					<section>
+						<h3>ASPInsider</h3>
+					</section>
+					<section>
+						<h3>Web Developer</h3>
+					</section>
+					<section>
+						<h3>Gaming Afficionado</h3>
+					</section>
+					<section>
+						<h3>Lover of JS</h3>
+					</section>
+				</section>
+				<section>
+					<h2>I have a secret...</h2>
+				</section>
+				<section>
+					<h2>
+						<p>We can now build our entire app</p>
+						<p class="fragment">in</p>
+						<p class="fragment excitement">JavaScript</p>
+					</h2>
+				</section>
+				<section>
+					<h2>How is this even possible!?</h2>
+					<h3>JavaScript is just client-side right?</h3>
+				</section>
+				<section>
+					<h1>WRONG</h1>
+				</section>
+				<section>
+					<h2>Node.JS changed the game</h2>
+					<h3>Allows JavaScript on the server</h3>
+				</section>
+				<section>
+					<h2>Before we start</h2>
+				</section>
+				<section>
+					<h2>Let's take a look at the technologies we're covering</h2>
+					<h3>(There's a lot of them)</h3>
+				</section>
+				<section>
+					<h2><p>Server:</p></h2><h3><p>Node.js</p></h3>
+				</section>
+				<section>
+					<h2><p>Web Framework:</p></h2><h3><p>Express.js</p></h3>
+				</section>
+				<section>
+					<h2><p>Database:</p></h2><h3><p>MongoDB and Mongoose.JS</p></h3>
+				</section>
+				<section>
+					<h2><p>UI Framework:</p></h2><h3><p>Kendo UI</p></h3>
+				</section>
+				<section>
+					<section>
+						<h2>Node.JS</h2>
+					</section>
+					<section>
+						<h3>Created by Ryan Dahl</h3>
+					</section>
+					<section>
+						<h3>Runs on Google's V8 Javascript Engine</h3>
+					</section>
+					<section>
+						<h3>Event driven</h3>
+					</section>
+					<section>
+						<h3>Asynchronous</h3>
+					</section>
+					<section>
+						<h3>Perfect for web servers</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Why is it perfect for web servers?</h2>
+					</section>
+					<section>
+						<h3>
+							<p>Asynchronous</p>
+							<p>and</p>
+							<p>event driven</p>
+						</h3>
+					</section>
+					<section>
+						<h3>Non-blocking I/O</h3>
+					</section>
+					<section>
+						<h3>Super light-weight</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Install Process</h2>
+					</section>
+					<section>
+						<h3><a href="http://nodejs.org/" target="_blank">Node.JS.org</a></h3>
+					</section>
+					<section>
+						<h3>Installers for OS X, Windows, Linux and SunOS</h3>
+					</section>
+					<section>
+						<h3>Automatically installs NodeJS and NPM</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>NPM</h2>
+					</section>
+					<section>
+						<h3>Package Manager for Node.JS</h3>
+					</section>
+					<section>
+						<h3>Super easy to use</h3>
+						<p>
+							<pre><code>
+npm install [package name]
+							</code></pre>
+						</p>
+					</section>
+				</section>
+				<section>
+					<h2>Quick Node.JS Server</h2>
+					<p>
+						<pre><code>
+var http = require('http');
+http.createServer(function (req, res) {
+	res.writeHead(200, {'Content-Type': 'text/plain'});
+	res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+						</code></pre>
+					</p>
+				</section>
+				<section>
+					<h2>Let's set up our server</h2>
+				</section>
+				<section>
+					<h2>
+						<p>Well that was fun</p>
+						<p class="fragment">What's next?</p>
+					</h2>
+				</section>
+				<section>
+					<section>
+						<h2>ExpressJS</h2>
+					</section>
+					<section>
+						<h3>Web App Framework for Node.JS</h3>
+					</section>
+					<section>
+						<h3>Extends the Node.JS framework</h3>
+					</section>
+					<section>
+						<h3>Simple way of handling routes</h3>
+					</section>
+					<section>
+						<h3>Quick and easy setup &amp; configuration</h3>
+					</section>
+					<section>
+						<h3>Built-in view templates (Jade)</h3>
+					</section>
+					<section>
+						<h3><span class="excitement">You</span> decide the structure</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Install Process</h2>
+					</section>
+					<section>
+						<h3>Navigate to your app folder</h3>
+					</section>
+					<section>
+						<h3>Create a package.json file</h3>
+					</section>
+					<section>
+						<h3>Paste the following</h3>
+						<p>
+							<pre><code>
+{
+  "name": "SampleApp",
+  "description": "Sample App Description",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x"
+  }
+}
+							</code></pre>
+						</p>
+					</section>
+					<section>
+						<h3>Run the following:</h3>
+							<p>
+								<pre><code>
+npm install
+								</code></pre>
+							</p>
+					</section>
+				</section>
+				<section>
+					<h2>Quick Express.JS Setup</h2>
+					<p>
+						<pre><code>
+var express = require('express');
+
+var app = express();
+
+app.get('/request', function(req, res) {
+	console.log('We got a request!');
+});
+
+app.listen(3000);
+console.log('Listening on port 3000...');
+						</code></pre>
+					</p>
+				</section>
+				<section>
+					<h2>Let's express-ify our app!</h2>
+				</section>
+				<section>
+					<h2>That was quick!</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Mongoose.JS</h2>
+					</section>
+					<section>
+						<h3>Simple Object Modeling</h3>
+					</section>
+					<section>
+						<h3>Work with BSON</h3>
+					</section>
+					<section>
+						<h3>Create strict models</h3>
+					</section>
+					<section>
+						<h3>Easily hook in to MongoDB</h3>
+					</section>
+					<section>
+						<h3>Higher level than 'raw' drivers</h3>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Install process</h2>
+					</section>
+					<section>
+						<h3>Very easy install!</h3>
+						<p>
+							<pre><code>
+npm install mongoose
+							</code></pre>
+						</p>
+					</section>
+				</section>
+				<section>
+					<h2>Adding our database!</h2>
+				</section>
+				<section>
+					<section>
+						<h2>Kendo UI</h2>
+					</section>
+					<section>
+						<h3>Created by <a href="http://www.telerik.com">@Telerik</a></h3>
+					</section>
+					<section>
+						<h3>JavaScript Framework</h3>
+					</section>
+					<section>
+						<h3>Based on jQuery</h3>
+					</section>
+					<section>	
+						<h3>Web App UI Framework</h3>
+					</section>
+					<section>
+						<h3>Mobile Hybrid App UI Framework</h3>
+					</section>
+					<section>
+						<h3>HTML5 and CSS3</h3>
+					</section>
+					<section>
+						<h3>Wide cross-browser support</h3>
+					</section>
+					<section>
+						<h3>IE7+, FF, Chrome, Safari, Opera</h3>
+					</section>
+				</section>
+				<section>
+					<h2>Quick Kendo Sample</h2>
+					<p>
+						<pre><code class="xml">
+&#60;<span class="title">ul </span><span class="attribute">id='myMenu' </span>&#62;
+	&#60;<span class="title">li</span>&#62;Books&#60;&#47;li&#62;
+	&#60;<span class="title">li</span>&#62;Video Games&#60;&#47;li&#62;
+	&#60;<span class="title">li</span>&#62;Movies&#60;&#47;li&#62;
+		&#60;<span class="title">ul</span>&#62;
+			&#60;<span class="title">li</span>&#62;The Big Lebowski&#60;&#47;li&#62;
+			&#60;<span class="title">li</span>&#62;The Matrix&#60;&#47;li&#62;
+		&#60;&#47;<span class="title">ul</span>&#62;
+	&#60;&#47;<span class="title">li</span>&#62;
+&#60;&#47;<span class="title">ul</span>&#62;
+
+&#60;script&#62;
+	$(function () {
+		$('#myMenu').kendoMenu();
+	});
+&#60;&#47;script&#62;
+						</code></pre>
+					</p>
+				</section>
+				<section>
+					<h2>Time to slap some UI on this thing</h2>
+				</section>
+				<section>
+					<h2>UI Level: Kendo UI</h2>
+				</section>
+				<section>
+					<h2>Woah there, hold your horses</h2>
+				</section>
+				<section>
+					<h2>Debugging!?</h2>
+				</section>
+				<section>
+					<section>
+						<h2><a href="https://github.com/dannycoates/node-inspector" target="_blank">Node Inspector</a></h2>
+					</section>
+					<section>
+						<h3>Debug any Node.JS App</h3>
+					</section>
+					<section>
+						<h3>Webkit Devtools</h3>
+					</section>
+					<section>
+						<p><h3>Easy to install</h3></p>
+						<p>
+							<pre><code>
+npm install -g node-inspector
+							</code></pre>
+						</p>
+					</section>
+					<section>
+						<h3>Easy to use</h3>
+						<p>
+							<pre><code>
+node-inspector &amp;
+							</code></pre>
+						</p>
+					</section>
+				</section>
+				<section>
+					<h2>Debugging time!</h2>
+				</section>
+				<section>
+					<h2>That's it!</h2>
+				</section>
+				<section>
+					<h2>We now have an app</h2>
+				</section>
+				<section>
+					<h2>Written in <span class="excitement">100% JavaScript</span></h2>
+				</section>
+				<section>
+					<h1>Thanks!</h1>
+					<h3>Q&amp;A</h3>
+					<p>
+						<a href="http://www.carlbergenhem.com" target="_blank">Carl Bergenhem</a> - <a href="http://twitter.com/carlbergenhem" target="_blank">@carlbergenhem</a>
+					</p>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
