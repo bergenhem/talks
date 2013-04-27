@@ -11,7 +11,7 @@ Any questions and/or comments can be added in the Issue Tracker.
 ---
 
 #### Building Web Apps in 100% JavaScript
-*building-web-apps-in-js
+*building-web-apps-in-js*
 
 A presentation which covers, from beginning to end, how to create an entire application utilizing just JavaScript. This is all made possible using Node.js on the server-side, Express.js as the web application framework, Mongoose.js as an ODM for MongoDB, and finally Kendo UI for the UI widgets.
 
