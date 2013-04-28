@@ -5,10 +5,10 @@ Slides and sample project for my 'Building a Web App in 100% Javascript' talk. C
 
 This is possible thanks to the following libraries:
 
-+ Server: [Node.js](http://nodejs.org/)
-+ Web Framework: [Express.js](http://expressjs.com/)
-+ Database: [MongoDB](http://www.mongodb.org/)
-+ ODM & Data Access: [Mongoose.js](http://mongoosejs.com/)
-+ UI: [Kendo UI](http://www.kendoui.com/)
++ **Server:** [Node.js](http://nodejs.org/)
++ **Web Framework:** [Express.js](http://expressjs.com/)
++ **Database:** [MongoDB](http://www.mongodb.org/)
++ **ODM & Data Access:** [Mongoose.js](http://mongoosejs.com/)
++ **UI:** [Kendo UI](http://www.kendoui.com/)
 
 This slide deck was created with [Reveal.js.](http://lab.hakim.se/reveal-js/#/) - a pretty neat HTML presentation library.
