@@ -36,8 +36,43 @@
             );
         }
 
+        function showAlert(passedText) {
+            navigator.notification.alert(
+                passedText,
+                onAlertDismissed,
+                'Alerts Everywhere',
+                'Sounds Good :)'
+            );
+        }
+
         function onAlertDismissed() {
             console.log('\nDismissed yonder alert\n');
+        }
+
+        function findAllContacts() {
+            var options = new ContactFindOptions();
+            options.filter = '';    //no criteria = all contacts
+            options.multiple = true;    //we can have more than one!
+            var filter = ["name"];  //return only the name field
+            navigator.contacts.find(filter, onContactsSuccess, onContactsError, options);
+        }
+
+        function onContactsSuccess(contacts) {
+            console.log('\nSuccess!\n');
+
+            var uberContactString = '';
+            for(var i = 0; i < contacts.length; i++) {
+                console.log('First Name: ' + contacts[i].name.givenName + '\n');
+                console.log('Last Name: ' + contacts[i].name.familyName + '\n');
+
+                uberContactString = uberContactString + contacts[i].name.givenName + ' ' + contacts[i].name.familyName + '\n';
+            }
+
+            showAlert(uberContactString);
+        }
+
+        function onContactsError(contactError) {
+            console.log('\nError!\n');
         }
 
         </script>
@@ -49,9 +84,10 @@
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
-            <button id="deviceButton">Get Device Information</button>
-            <button id="clearButton">Clear Device Infomration</button>
+            <!-- <button id="deviceButton">Get Device Information</button>
+            <button id="clearButton">Clear Device Infomration</button> -->
             <!-- <button id="alertUser" onclick="showSampleAlert(); return false;">Create An Alert!</button> -->
+            <button id="findContacts" onclick="findAllContacts(); return false;">Find All Contacts</button>
             <div id="contentArea"></div>
         </div>
         <script type="text/javascript" src="cordova-2.7.0.js"></script>
