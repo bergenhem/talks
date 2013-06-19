@@ -47,12 +47,12 @@ var app = {
     },
     onDeviceButtonClick: function() {
         var contentArea = document.getElementById('contentArea');
-        contentArea.innerHTML = '<p>Name: ' + device.name + '<p>' +
-                                '<p>Platform: ' + device.platform + '<p>' +
-                                '<p>Version: ' + device.version + '<p>' +
-                                '<p>Cordova: ' + device.cordova + '<p>' +
-                                '<p>UUID: ' + device.uuid + '<p>' +
-                                '<p>Model: ' + device.model + '<p>';
+        contentArea.innerHTML = '<p>Name: ' + device.name + '</p>' +
+                                '<p>Platform: ' + device.platform + '</p>' +
+                                '<p>Version: ' + device.version + '</p>' +
+                                '<p>Cordova: ' + device.cordova + '</p>' +
+                                '<p>UUID: ' + device.uuid + '</p>' +
+                                '<p>Model: ' + device.model + '</p>';
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
