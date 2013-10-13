@@ -205,7 +205,7 @@
 						<h2>Define what data should be used</h2>
 					</section>
 					<section>
-						<h2>Control applications's</h2>
+						<h2>Control applications'</h2>
 						<h3>
 							<ul>
 								<li class="fragment" data-fragment-index="0">State</li>
@@ -324,7 +324,147 @@
 					<section>
 						<h1>Backbone</h1>
 					</section>
-					<!-- Backbone Model, View, and Router -->
+					<section>
+						<h2>Light-weight library</h2>
+					</section>
+					<section>
+						<h2>The basic foundation</h2>
+					</section>
+					<section>
+						<h2>Not a ton of extra frills</h2>
+					</section>
+					<section>
+						<h2>The structure is up to you</h2>
+					</section>
+					<section>
+						<h2>Offers a set of helpful classes</h2>
+					</section>
+					<section>
+						<h2>Each one can</h2>
+						<h2>- and will be -</h2>
+						<h2>extended</h2>
+					</section>
+					<section>
+						<h2>Backbone main classes</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Model</li>
+								<li class="fragment" data-fragment-index="1">Collection</li>
+								<li class="fragment" data-fragment-index="2">View</li>
+								<li class="fragment" data-fragment-index="3">Router</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h1>Model</h1>
+					</section>
+					<section>
+						<h2>Backbone.Model</h2>
+						<pre><code class="JavaScript">var myModel = new Backbone.Model();</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Extend Method</h2>
+						<pre><code class="JavaScript">var Character = new Backbone.Model.extend({
+							defaults: {
+	    name: 'Blanks',
+	    species: 'Human',
+	    description: 'No description yet.'
+	},
+	initialize: function() {
+	    console.log('New character created');
+	}
+});
+
+var jake = new Character({
+	name: 'Jake the Dog',
+	species: 'Dog',
+	description: 'A magical dog. Best friend, and brother, with Finn.'
+});
+</code></pre>
+					</section>
+					<section>
+						<h1>Collections</h1>
+					</section>
+					<section>
+						<h2>Group related models together</h2>
+					</section>
+					<section>
+						<h2>Methods for adding/removing models</h2>
+					</section>
+					<section>
+						<h2>Simple array-like object</h2>
+					</section>
+					<section>
+						<h2>Collection Code</h2>
+						<pre><code class="JavaScript">var Character = new Backbone.Model.extend({
+							defaults: {
+	    name: 'Blanks',
+	    species: 'Human',
+	    description: 'No description yet.'
+	},
+	initialize: function() {
+	    console.log('New character created');
+	}
+});
+
+var Cast = Backbone.Collection.extend({
+	model: Character
+});
+
+var jake = new Character({
+	name: 'Jake the Dog',
+	species: 'Dog',
+	description: 'A magical dog. Best friend, and brother, with Finn.'
+});
+
+var finn = new Character({
+	name: 'Finn the Human',
+	species: 'Human',
+	description: 'The last human in the Land of Ooo. Hangs out with Jake.'
+});
+
+var castList = new Cast([ jake, finn ]);
+
+console.log(castList.models);
+</code></pre>
+					</section>
+					<section>
+						<h1>View</h1>
+					</section>
+					<section>
+						<h2>The link between models and the UI</h2>
+					</section>
+					<section>
+						<h2>Renders the models and their data</h2>
+					</section>
+					<section>
+						<h2>Views are bound to models or collections</h2>
+					</section>
+					<section>
+						<h2>Receives events from the Model and HTML document</h2>
+					</section>
+					<section>
+						<h2>The 'el' property</h2>
+						<h3>
+							<ul>
+								<li>Every view has an 'el' property</li>
+								<li>If not defined, a blank div is created</li>
+								<li>References the view's DOM object</li>
+								<li>Pass in a HTML element to modify it</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h2>Usage of 'el'</h2>
+						<pre><code></code></pre>
+					</section>
+					<section>
+						<h2>Default templates by Underscore</h2>
+					</section>
+					<section>
+						<h1>Router</h1>
+					</section>
 				</section>
 
 				<section>
