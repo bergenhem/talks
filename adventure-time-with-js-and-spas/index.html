@@ -470,20 +470,24 @@ console.log(castList.models);
 								<li class="fragment" data-fragment-index="1">If not defined, a blank div is created</li>
 								<li class="fragment" data-fragment-index="2">References the view's DOM object</li>
 								<li class="fragment" data-fragment-index="3">Pass in a HTML element to modify it</li>
+								<li class="fragment" data-fragment-index="4">Can be a jQuery object via $el</li>
 							</ul>
 						</h3>
 					</section>
 					<section>
 						<h2>Backbone.View</h2>
-						<h2>UPDATE CODE</h2>
-						<pre><code class="JavaScript">var myView = Backbone.View.extend({
+						<pre><code class="JavaScript">var FinnView = Backbone.View.extend({
 	tagName: 'div',
-	id: 'sampleDiv',
-	className: 'sampleClass',
+	id: 'finnDiv',
+	className: 'finnClass',
 	attributes: {
 		'data-custom': 12345
 	}
-});</code></pre>
+});
+
+var quickView = new FinnView();
+
+$('#placeholder').prepend(quickView.el);</code></pre>
 					</section>
 					<section>
 						<h2>Resulting HTML</h2>
@@ -491,7 +495,7 @@ console.log(castList.models);
 					</section>
 					<section>
 						<h2>Default templates by Underscore</h2>
-						<!-- snippet -->
+						<a href="http://jsbin.com/IWewESE/8/edit?html,js,output">jsBin.com/IWewESE/8/</a>
 					</section>
 					<section>
 						<h1>Router</h1>
@@ -608,6 +612,19 @@ console.log(castList.models);
 	species: 'Human',
 	description: 'The last human in the Land of Ooo. Hangs out with Jake.'
 });
+</code></pre>
+					</section>
+					<section>
+						<h2>Use get() or set() with fields</h2>
+						<pre><code class="JavaScript">var finnModel = kendo.observable({
+	name: 'Finn the Human',
+	species: 'Dog',
+	description: 'The last human in the Land of Ooo. Hangs out with Jake.'
+});
+
+finnModel.set('species', 'Human');
+
+var species = finnModel.get('species'); //Human
 </code></pre>
 					</section>
 					<section>
