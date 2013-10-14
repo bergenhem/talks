@@ -360,12 +360,12 @@
 					</section>
 					<section>
 						<h2>Backbone.Model</h2>
-						<pre><code class="JavaScript">var myModel = new Backbone.Model();</code>
+						<pre><code class="JavaScript">var myModel = new Backbone.Model({});</code>
 						</pre>
 					</section>
 					<section>
 						<h2>Extend Method</h2>
-						<pre><code class="JavaScript">var Character = new Backbone.Model.extend({
+						<pre><code class="JavaScript">var Character = Backbone.Model.extend({
 							defaults: {
 	    name: 'Blanks',
 	    species: 'Human',
@@ -397,7 +397,7 @@ var jake = new Character({
 					</section>
 					<section>
 						<h2>Collection Code</h2>
-						<pre><code class="JavaScript">var Character = new Backbone.Model.extend({
+						<pre><code class="JavaScript">var Character = Backbone.Model.extend({
 							defaults: {
 	    name: 'Blanks',
 	    species: 'Human',
@@ -457,10 +457,22 @@ console.log(castList.models);
 					</section>
 					<section>
 						<h2>Usage of 'el'</h2>
-						<pre><code></code></pre>
+						<pre><code class="JavaScript">var myView = Backbone.View.extend({
+	tagName: 'div',
+	id: 'sampleDiv',
+	className: 'sampleClass',
+	attributes: {
+		'data-custom': 12345
+	}
+});</code></pre>
+					</section>
+					<section>
+						<h2>Resulting HTML</h2>
+						<pre><code class="XML"><div data-custom="12345" id="sampleDiv" class="sampleClass"></div></code></pre>
 					</section>
 					<section>
 						<h2>Default templates by Underscore</h2>
+						<!-- snippet -->
 					</section>
 					<section>
 						<h1>Router</h1>
