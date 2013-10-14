@@ -477,6 +477,62 @@ console.log(castList.models);
 					<section>
 						<h1>Router</h1>
 					</section>
+					<section>
+						<h2>Use of hash fragments</h2>
+						<pre>
+							<code class="string" style="font-size: 2em; padding: 0.75em;">http://myurl.com/#/products/</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Parses URL and finds appropriate function</h2>
+					</section>
+					<section>
+						<h2>Uses HTML5 History API if possible</h2>
+					</section>
+					<section>
+						<h2>Define a route</h2>
+						<pre><code class="JavaScript">var SampleRouter = Backbone.Router.extend({
+	routes: {
+		'character/:name': 'character' //route pattern : handler name
+	},
+	search: function(name) { //handler
+	    //...
+	}
+});</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Backbone Summary</h1>
+					</section>
+					<section>
+						<h2>.extend({}) everything</h2>
+					</section>
+					<section>
+						<h2>Backbone main classes</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Model</li>
+								<li class="fragment" data-fragment-index="1">Collection</li>
+								<li class="fragment" data-fragment-index="2">View</li>
+								<li class="fragment" data-fragment-index="3">Router</li>
+							</ul>
+						</h3>	
+					</section>
+					<section>
+						<h2>Model deals with all of our data</h2>
+					</section>
+					<section>
+						<h2>A collection has multiple Models</h2>
+					</section>
+					<section>
+						<h2>View needs a Model</h2>
+						<h2>Works with Model and DOM</h2>
+					</section>
+					<section>
+						<h2>Router works with URL to serve correct View</h2>
+					</section>
 				</section>
 
 				<section>
