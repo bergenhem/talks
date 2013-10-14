@@ -396,7 +396,7 @@ var jake = new Character({
 						<h2>Simple array-like object</h2>
 					</section>
 					<section>
-						<h2>Collection Code</h2>
+						<h2>Backbone.Collection</h2>
 						<pre><code class="JavaScript">var Character = Backbone.Model.extend({
 							defaults: {
 	    name: 'Blanks',
@@ -456,7 +456,7 @@ console.log(castList.models);
 						</h3>
 					</section>
 					<section>
-						<h2>Usage of 'el'</h2>
+						<h2>Backbone.View</h2>
 						<pre><code class="JavaScript">var myView = Backbone.View.extend({
 	tagName: 'div',
 	id: 'sampleDiv',
@@ -490,12 +490,12 @@ console.log(castList.models);
 						<h2>Uses HTML5 History API if possible</h2>
 					</section>
 					<section>
-						<h2>Define a route</h2>
+						<h2>Backbone.Router</h2>
 						<pre><code class="JavaScript">var SampleRouter = Backbone.Router.extend({
 	routes: {
 		'character/:name': 'character' //route pattern : handler name
 	},
-	search: function(name) { //handler
+	character: function(name) { //handler
 	    //...
 	}
 });</code></pre>
