@@ -495,7 +495,7 @@ $('#placeholder').prepend(quickView.el);</code></pre>
 					</section>
 					<section>
 						<h2>Default templates by Underscore</h2>
-						<a href="http://jsbin.com/IWewESE/8/edit?html,js,output">jsBin.com/IWewESE/8/</a>
+						<a href="http://jsbin.com/IWewESE/8/edit" target="_blank">jsBin.com/IWewESE/8/</a>
 					</section>
 					<section>
 						<h1>Router</h1>
@@ -503,7 +503,7 @@ $('#placeholder').prepend(quickView.el);</code></pre>
 					<section>
 						<h2>Use of hash fragments</h2>
 						<pre>
-							<code class="string" style="font-size: 2em; padding: 0.75em;">http://myurl.com/#/products/</code>
+							<code class="string" style="font-size: 2em; padding: 0.75em;">http://myurl.com/#/characters/</code>
 						</pre>
 					</section>
 					<section>
@@ -528,6 +528,15 @@ $('#placeholder').prepend(quickView.el);</code></pre>
 				<section>
 					<section>
 						<h1>Backbone Summary</h1>
+					</section>
+					<section>
+						<h2>Barebones tools to build our app</h2>
+					</section>
+					<section>
+						<h2>Emphasis on data and Models</h2>
+					</section>
+					<section>
+						<h2>Not a ton of tools for the View</h2>
 					</section>
 					<section>
 						<h2>.extend({}) everything</h2>
@@ -631,10 +640,112 @@ var species = finnModel.get('species'); //Human
 						<h1>View</h1>
 					</section>
 					<section>
+						<h2>Can be defined with simple HTML string</h2>
+					</section>
+					<section>
+						<h2>Works with Kendo UI templates</h2>
+					</section>
+					<section>
+						<h2>Works with our Observables to create data bound UI</h2>
+					</section>
+					<section>
+						<h2>kendo.View()</h2>
+						<pre><code class="JavaScript">var index = new kendo.View('<span>Adventure Time!</span>');
+
+index.render('#placeholder');
+</code></pre>
+					</section>
+					<section>
+						<h2>With Kendo UI Templates and Observables</h2>
+						<a href="http://jsbin.com/imAnimo/5/edit" target="_blank">jsbin.com/imAnimo/5/</a>
+					</section>
+					<section>
 						<h1>Layout</h1>
 					</section>
 					<section>
+						<h2>Provides a layout for views to adhere to</h2>
+					</section>
+					<section>
+						<h2>MasterPages for you .NET folks</h2>
+					</section>
+					<section>
+						<h2>kendo.Layout</h2>
+						<pre><code class="JavaScript">var view = new Kendo.View('<span>Finn the Human</span>');
+
+var layout = new kendo.Layout('<header>Header</header><div id="content"></div><footer>Footer</footer>');
+
+layout.render($('#app'));
+
+layout.showIn('#content', view);
+</code></pre>
+					</section>
+					<section>
 						<h1>Router</h1>
+					</section>
+					<section>
+						<h2>Responsible for application state</h2>
+					</section>
+					<section>
+						<h2>Navigate between views</h2>
+					</section>
+					<section>
+						<h2>Use of hash fragments</h2>
+						<pre>
+							<code class="string" style="font-size: 2em; padding: 0.75em;">http://myurl.com/#/characters/</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Can programmatically navigate</h2>
+					</section>
+					<section>
+						<h2>Use with Layout to show new content</h2>
+					</section>
+					<section>
+						<h2>kendo.Router()</h2>
+						<pre><code class="JavaScript">var router = new kendo.Router();
+router.route('/', function () {
+	layout.showIn('#content', homeView);
+});
+
+router.route('/character', function () {
+	layout.showIn('#content', characterView);
+});
+
+$(function() {
+	router.start(); //very important
+
+	router.navigate('/character');
+});
+</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Kendo UI Summary</h1>
+					</section>
+					<section>
+						<h2>Tools across the board</h2>
+					</section>
+					<section>
+						<h2>Classes for dealing with data</h2>
+					</section>
+					<section>
+						<h2>Helpful UI and View classes</h2>
+					</section>
+					<section>
+						<h2>Large set of UI widgets</h2>
+					</section>
+					<section>
+						<h2>Kendo UI SPA key items</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Observable</li>
+								<li class="fragment" data-fragment-index="1">View</li>
+								<li class="fragment" data-fragment-index="2">Layout</li>
+								<li class="fragment" data-fragment-index="3">Router</li>
+							</ul>
+						</h3>
 					</section>
 				</section>
 
