@@ -1,0 +1,3 @@
+window.kendoApp = (function($){
+
+})(jQuery);
