@@ -19,7 +19,6 @@ header {
 	margin-bottom: 30px;
 }
 
-
 header nav ul li {
 	display: inline-block;
 	text-align: center;
@@ -33,13 +32,33 @@ header nav ul li:hover {
 	background-color: #FFB03B;
 }
 
+section#content {
+	width: 700px;
+	margin: auto;
+
+	color: #000;
+}
+
+section#content h1 {
+	font-size: 3em;
+}
+
+section#content h2 {
+	font-size: 1.5em;
+}
+
+section#content p.description {
+	margin-top: 10px;
+
+}
+
 footer {
 	position: absolute;
 	bottom: 0px;
 
 	background-color: #B64926;
 	color: #FFB03B;
-	
+
 	height: 40px;
 	width: 100%;
 
