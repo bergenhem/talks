@@ -5,27 +5,57 @@
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
-	<header>
-		<nav>
-			<ul>
-				<li>Finn</li>
-				<li>Jake</li>
-				<li>BMO</li>
-			</ul>
-		</nav>
-	</header>
-	<section id="content">
+
+<div id="app"></div> <!-- Placeholder element for our app -->
+
+	<!-- Layout Template -->
+	<script type="text/x-kendo-template" id="kendo-layout-template">
+		<header>
+			<nav>
+				<ul>
+					<li><a href="/#/show">Show</a></li>
+					<li><a href="/#/chars/finn">Finn</a></li>
+					<li><a href="/#/chars/jake">Jake</a></li>
+					<li><a href="/#/chars/jake">BMO</a></li>
+				</ul>
+			</nav>
+		</header>
+		<section id="content">
+
+		</section>
+
+		<footer>
+			<div class="footerDiv">Kendo UI SPA Application</div>
+		</footer>
+	</script>
+	<!-- End Layout Template -->
+
+	<!-- Views -->
+	
+	<!-- Show/Index View -->
+	<script type="text/x-kendo-template" id="show-view">
+		<h1>Adventure Time!</h1>
+		<p>A pretty awesome show</p>
+	</script>
+
+	<!-- Character View -->
+	<script type="text/x-kendo-template" id="char-view"
 		<h1>Jake</h1> <!-- Name -->
 		<h2>Human</h2> <!-- Species -->
-		<p class="description">Finn (full title: Finn the Human, known as Finn Mertens in the Farmworld timeline and formerly as Pen in the original short) is the main protagonist of the series Adventure Time.</p> <!-- Description -->
-	</section>
-
-	<footer>
-		<div class="footerDiv">Kendo UI SPA Application</div>
-	</footer>
+		<p class="description">Finn (full title: Finn the Human, known as Finn Mertens in the Farmworld timeline and formerly as Pen in the original short) is the main protagonist of the series Adventure Time.
+		</p> <!-- Description -->
+	</script>
+	<!-- End Views -->
 
 <script type="text/javascript" src="lib/jquery.min.js"></script>
 <script type="text/javascript" src="lib/kendo.all.min.js"></script>
 <script type="text/javascript" src="js/app.js"></script>
+
+<script type="text/javascript">
+	(function() {
+		KendoApp.startApp();
+	})();
+</script>
+
 </body>
 </html>

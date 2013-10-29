@@ -27,6 +27,14 @@ header nav ul li {
 	padding-top: 15px;
 }
 
+header nav ul li a:link,
+header nav ul li a:visited,
+header nav ul li a:hover,
+header nav ul li a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
 header nav ul li:hover {
 	color: #B64926;
 	background-color: #FFB03B;
