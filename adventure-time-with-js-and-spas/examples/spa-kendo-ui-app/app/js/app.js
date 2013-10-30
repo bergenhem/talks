@@ -21,21 +21,24 @@ window.KendoApp = (function(){
 					name: "Finn",
 					species: "Human",
 					occupation: "Hero",
-					description: "Finn (full title: Finn the Human, known as Finn Mertens in the Farmworld timeline and formerly as Pen in the original short) is the main protagonist of the series Adventure Time."
+					description: "Finn (full title: Finn the Human, known as Finn Mertens in the Farmworld timeline and formerly as Pen in the original short) is the main protagonist of the series Adventure Time.",
+					linkUrl: "http://adventuretime.wikia.com/wiki/Finn"
 				},
 				{
 					id: 1,
 					name: "Jake",
 					species: "Dog",
 					occupation: "Adventurer",
-					description: "Jake (full title: Jake the Dog), the deuteragonist of Adventure Time, is a magical dog and Finn's constant companion, best friend, and adoptive brother. Jake has Stretchy Powers (which he has had since he was a puppy), which allow him to stretch and manipulate his body, coming in handy on innumerable occasions throughout his and Finn's adventures."
+					description: "Jake (full title: Jake the Dog), the deuteragonist of Adventure Time, is a magical dog and Finn's constant companion, best friend, and adoptive brother. Jake has Stretchy Powers (which he has had since he was a puppy), which allow him to stretch and manipulate his body, coming in handy on innumerable occasions throughout his and Finn's adventures.",
+					linkUrl: "http://adventuretime.wikia.com/wiki/Jake"
 				},
 				{
 					id: 2,
 					name: "BMO",
 					species: "MO",
 					occupation: "Video Game System",
-					description: "BMO (phonetically spelled Beemo)[2] is Finn and Jake's living video game console, portable electrical outlet, music player, roommate, camera, alarm clock, toaster, flashlight, strobe light, skateboarder, friend, soccer player, video editor, and video player."
+					description: "BMO (phonetically spelled Beemo) is Finn and Jake's living video game console, portable electrical outlet, music player, roommate, camera, alarm clock, toaster, flashlight, strobe light, skateboarder, friend, soccer player, video editor, and video player.",
+					linkUrl: "http://adventuretime.wikia.com/wiki/BMO"
 				}],
 				schema: {
 					model: { id: "id" }
@@ -51,6 +54,7 @@ window.KendoApp = (function(){
 				species: null,
 				occupation: null,
 				description: null,
+				linkUrl: null,
 				comboboxValue: null,
 				charList: characterList,
 				showById: function(id) {
@@ -62,6 +66,8 @@ window.KendoApp = (function(){
 					this.set('species', character.get('species'));
 					this.set('occupation', character.get('occupation'));
 					this.set('description', character.get('description'));
+					this.set('linkUrl', character.get('linkUrl'));
+					this.set('comboboxValue', character.get('id'));
 				},
 				getIdByName: function(name) {
 					switch(name) {
