@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Kendo UI SPA Sample Application</title>
+	<link rel="stylesheet" type="text/css" href="css/kendo/kendo.common.min.css">
+	<link rel="stylesheet" type="text/css" href="css/kendo/kendo.flat.min.css">
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
@@ -14,9 +16,8 @@
 			<nav>
 				<ul>
 					<li><a href="/#/">Show</a></li>
-					<li><a href="/#/chars/finn">Finn</a></li>
-					<li><a href="/#/chars/jake">Jake</a></li>
-					<li><a href="/#/chars/bmo">BMO</a></li>
+					<li><a href="/#/chars/">Characters</a></li>
+					<li><a href="/#/form/">Form</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -40,11 +41,16 @@
 
 	<!-- Character View -->
 	<script type="text/x-kendo-template" id="char-view">
+		<select data-role="combobox" data-text-field="name" data-value-field="id" data-bind="source: charList, value: comboboxValue, events: { change: comboChange }" />
 		<h1 data-bind="text: name"></h1> <!-- Name -->
 		<h2 data-bind="text: species"></h2> <!-- Species -->
 		<h3 data-bind="text: occupation"></h2> <!-- Occupation -->
 		<p class="description" data-bind="text: description">
 		</p> <!-- Description -->
+	</script>
+
+	<script type="text/x-kendo-template" id="form-view">
+
 	</script>
 	<!-- End Views -->
 

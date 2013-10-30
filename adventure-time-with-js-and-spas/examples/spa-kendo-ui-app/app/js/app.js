@@ -47,10 +47,11 @@ window.KendoApp = (function(){
 
 			//create our ViewModel
 			var charModel = kendo.observable({
-				name: 'Finn',
-				species: 'Human',
-				occupation: 'Hero',
-				description: 'Default description',
+				name: null,
+				species: null,
+				occupation: null,
+				description: null,
+				comboboxValue: null,
 				charList: characterList,
 				showById: function(id) {
 					var character = this.charList.get(id);
@@ -73,6 +74,28 @@ window.KendoApp = (function(){
 						default:
 							return 0;
 					}
+				},
+				getNameById: function(id) {
+					console.log(id);
+					switch(id) {
+						case '0':
+							return 'finn';
+						case '1':
+							return 'jake';
+						case '2':
+							return 'bmo';
+						default:
+							return 'finn';
+					}
+				},
+				comboChange: function(e){
+					var selectedValue = e.sender.value();
+					this.showById(selectedValue);
+
+					var name = this.getNameById(selectedValue);
+					
+					//update URL but DO NOT navigate
+					myRouter.navigate('/chars/' + name, false);
 				}
 			});
 
@@ -85,6 +108,22 @@ window.KendoApp = (function(){
 			//Routes
 			myRouter.route('/', function() {
 				myLayout.showIn('#content', showView);
+			});
+
+			myRouter.route('/chars/', function() {
+
+				//access our view's model
+				var charModel = charView.model;
+
+				myLayout.showIn('#content', charView);
+
+				//if our dropdown has a value we want to update our URL
+				if(charModel.name !== null) {
+					var lowerCaseName = charModel.name.toLowerCase();
+
+					//do NOT actually navigate/render /chars/:name
+					myRouter.navigate('/chars/' + lowerCaseName, false);
+				}
 			});
 
 			myRouter.route('/chars/:name', function(name) {
