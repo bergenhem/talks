@@ -18,11 +18,12 @@ app.CharsView = Backbone.View.extend({
 		if(placeHolder) {
 			placeHolder.remove();
 		}
+		$('#character-select option[value="' + this.selectedView + '"]').prop('selected', true);
 	},
 	renderViewByModelId: function(id) {
-		this.syncSelectElement(id);
-
 		this.selectedView = id;
+
+		this.syncSelectElement(id);
 
 		//get our model, create a view and assign it said model, then render the model
 		var selectedModel = app.Characters.get(id);
