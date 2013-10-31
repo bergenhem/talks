@@ -1,9 +1,9 @@
 var Workspace = Backbone.Router.extend({
 	routes : {
-		'' : 'show',
+		'' : 'show', //http://www.example.com/
 		'chars/' : 'getCharacters',
-		'chars/:name': 'getCharacter',
-		'*actions' : 'defaultRoute' //http://example.com/#whatever
+		'chars/:name': 'getCharacter', //http://www.example.com/finn
+		'*actions' : 'defaultRoute' //http://www.example.com/#whatever
 	},
 	showView: new app.ShowView(),
 	charView: new app.CharsView({ collection: app.Characters }),
@@ -11,6 +11,7 @@ var Workspace = Backbone.Router.extend({
 		this.showView.render();
 	},
 	getCharacters: function() {
+		//check if we have a previous selected character
 		if(this.charView.selectedView !== null) {
 			this.renderCharacterCheck();
 			this.charView.renderViewByModelId(this.charView.selectedView);
@@ -20,7 +21,9 @@ var Workspace = Backbone.Router.extend({
 			this.charView.render();
 		}
 	},
+	//render the appropriate character page
 	getCharacter: function(name) {
+		name = name.toLowerCase();
 		this.renderCharacterCheck();
 		this.charView.renderViewByModelId(app.Characters.getIdByName(name));
 	},
@@ -29,11 +32,11 @@ var Workspace = Backbone.Router.extend({
 		
 		this.showView.render();
 	},
+	//just change the actual URL - don't force routing to happen again
 	updateUrl: function() {
-		console.log(this.charView.selectedView);
-		console.log(app.Characters.getNameById(this.charView.selectedView));
 		this.navigate('#/chars/' + app.Characters.getNameById(this.charView.selectedView), { trigger: false });
 	},
+	//just a quick check to see if a character has been previously rendered
 	renderCharacterCheck: function() {
 		if(this.charView.$el.find('#character-select').length === 0){
 			this.charView.render();

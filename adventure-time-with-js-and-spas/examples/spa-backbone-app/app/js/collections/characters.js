@@ -36,7 +36,6 @@ var CharacterList = Backbone.Collection.extend({
 		charsList.add([finn, jake, bmo]);
 	},
 	getIdByName: function(name) {
-		name = name.toLowerCase();
 		switch(name){
 			case 'finn':
 				return 0;

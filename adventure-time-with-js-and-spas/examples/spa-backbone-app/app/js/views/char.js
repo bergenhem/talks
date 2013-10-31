@@ -7,9 +7,9 @@ app.CharView = Backbone.View.extend({
 	template: _.template($('#character-template').html()),
 	//We want to take our template and actually render it in the view
 	render: function() {
-		//$el is the jQuery selector of 'el' and allows use to use .html()
-		//also we want to pass in the model to bind our view
-		//this.$el.html(this.template(this.model.toJSON()));
+
+		//Take our element and set the HTML to that of the template afer it is data bound to our 
+		//JSON serialized model (Character)
 		this.$el.html(this.template(this.model.toJSON()));
 
 		//best practice is to return the view object

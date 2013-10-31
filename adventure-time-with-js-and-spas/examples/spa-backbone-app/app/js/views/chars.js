@@ -5,6 +5,7 @@ var app = app || {};
 app.CharsView = Backbone.View.extend({
 	el: $('#content'),
 	template: _.template($('#characters-template').html()),
+	//this is used to remember what Character we had selected
 	selectedView: null,
 	events: {
 		'change #character-select' : 'characterSelected'
@@ -13,6 +14,7 @@ app.CharsView = Backbone.View.extend({
 		this.renderViewByModelId(this.$('#character-select').val());
 		app.Router.updateUrl();
 	},
+	//Removes the placeholder text and selects the appropriate entry
 	syncSelectElement: function() {
 		//remove our placeholder text
 		var placeHolder = $('#character-select option[value=""]');
