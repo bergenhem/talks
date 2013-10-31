@@ -11,6 +11,7 @@ app.CharsView = Backbone.View.extend({
 	},
 	characterSelected: function() {
 		this.renderViewByModelId(this.$('#character-select').val());
+		app.Router.updateUrl();
 	},
 	syncSelectElement: function() {
 		//remove our placeholder text
