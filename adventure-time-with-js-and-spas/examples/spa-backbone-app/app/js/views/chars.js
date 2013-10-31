@@ -3,7 +3,7 @@ var app = app || {};
 
 app.CharsView = Backbone.View.extend({
 	el: $('#content'),
-	template: _.template($('#temp-template').html()),
+	template: _.template($('#character-template').html()),
 	initialize: function() {
 		this.render();
 	},
