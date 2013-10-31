@@ -2,7 +2,6 @@
 var app = app || {};
 
 var CharacterList = Backbone.Collection.extend({
-
 	//reference our model
 	model: app.Character
 });

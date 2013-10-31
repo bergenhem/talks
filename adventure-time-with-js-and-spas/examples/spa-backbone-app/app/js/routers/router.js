@@ -25,6 +25,7 @@ var Workspace = Backbone.Router.extend({
 
 //instantiate our router
 var app_router = new Workspace();
+app.Router = app_router;
 
 //start tracking URL
 Backbone.history.start();

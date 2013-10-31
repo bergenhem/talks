@@ -1,19 +1,38 @@
 //If our app variable doesn't exist yet, define it as an empty object
 var app = app || {};
 
+//Overall Character View
 app.CharsView = Backbone.View.extend({
 	el: $('#content'),
-	template: _.template($('#character-template').html()),
+	template: _.template($('#characters-template').html()),
 	initialize: function() {
-		this.render();
+		var charsList = app.Characters;
+		this.createCharacters(charsList);
+		this.characters = charsList;
 	},
-	//We want to take our template and actually render it in the view
+	events: {
+		'change #character-select' : 'characterSelected'
+	},
+	characterSelected: function(character) {
+		console.log(this.$el);
+		console.log(this.$('#character-select').val());
+	},
+	createCharacters: function(charsList) {
+		var finn = new app.Character({
+			name: 'Finn'
+		});
+		var jake = new app.Character({
+			name: 'Jake'
+		});
+		var bmo = new app.Character({
+			name: 'BMO'
+		});
+		charsList.add([finn, jake, bmo]);
+	},
 	render: function() {
-		//$el is the jQuery selector of 'el' and allows use to use .html()
-		//also we want to pass in the model to bind our view
-		//this.$el.html(this.template(this.model.toJSON()));
 
-		this.$el.html(this.template());
+		//Take our template, pass in our characters collection, and render the resulting HTML
+		this.$el.html(this.template({characters: this.characters}));
 
 		//best practice is to return the view object
 		return this;

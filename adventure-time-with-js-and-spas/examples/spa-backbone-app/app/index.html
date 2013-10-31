@@ -5,6 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
+<section id="app">
 	<header>
 		<nav>
 			<ul>
@@ -17,6 +18,7 @@
 	<footer>
 		<div class="footerDiv">Backbone SPA Application</div>
 	</footer>
+</section>
 
 	<!-- Views -->
 
@@ -31,7 +33,17 @@
 		</p>
 	</script>
 
-	<!-- Character View -->
+	<!-- Characters View -->
+	<script type="text/template" id="characters-template">
+		<select id="character-select">
+				<option selected="selected">Select Character...</option>
+			<% characters.each(function(character) { %>
+				<option><%- character.get('name') %></option>
+			<% }); %>
+		</select>
+	</script>
+
+	<!-- Individual Character Section -->
 	<script type="text/template" id="character-template">
 		<h1><%- name %></h1> <!-- Name -->
 		<h2><%- species %></h2> <!-- Species -->
@@ -39,15 +51,17 @@
 		<p class="description"><%- description %></p> <!-- Description -->
 	</script>
 	<!-- End Views -->
-
 <script type="text/javascript" src="lib/jquery.min.js"></script>
 <script type="text/javascript" src="lib/underscore.min.js"></script>
 <script type="text/javascript" src="lib/backbone.min.js"></script>
 
 <script type="text/javascript" src="js/models/character.js"></script>
 <script type="text/javascript" src="js/collections/characters.js"></script>
+
+<script type="text/javascript" src="js/views/char.js"></script>
 <script type="text/javascript" src="js/views/chars.js"></script>
 <script type="text/javascript" src="js/views/show.js"></script>
+
 <script type="text/javascript" src="js/routers/router.js"></script>
 
 <script type="text/javascript" src="js/app.js"></script>
