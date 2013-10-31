@@ -47,6 +47,19 @@ var CharacterList = Backbone.Collection.extend({
 			default:
 				return 0;
 		}
+	},
+	getNameById: function(id) {
+		console.log(id);
+		switch(id) {
+			case '0':
+				return 'finn';
+			case '1':
+				return 'jake';
+			case '2':
+				return 'bmo';
+			default:
+				return 'finn';
+		}
 	}
 });
 

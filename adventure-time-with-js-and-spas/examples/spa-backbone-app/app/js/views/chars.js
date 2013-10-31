@@ -5,6 +5,7 @@ var app = app || {};
 app.CharsView = Backbone.View.extend({
 	el: $('#content'),
 	template: _.template($('#characters-template').html()),
+	selectedView: null,
 	events: {
 		'change #character-select' : 'characterSelected'
 	},
@@ -20,7 +21,9 @@ app.CharsView = Backbone.View.extend({
 	},
 	renderViewByModelId: function(id) {
 		this.syncSelectElement(id);
-		
+
+		this.selectedView = id;
+
 		//get our model, create a view and assign it said model, then render the model
 		var selectedModel = app.Characters.get(id);
 		var selectedView = new app.CharView({ model: selectedModel, el: $('#characterSection') });

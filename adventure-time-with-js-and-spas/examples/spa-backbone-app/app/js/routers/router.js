@@ -11,21 +11,28 @@ var Workspace = Backbone.Router.extend({
 		this.showView.render();
 	},
 	getCharacters: function() {
-		this.charView.render();
+		if(this.charView.selectedView){
+			this.renderCharacterCheck();
+			this.charView.renderViewByModelId(this.charView.selectedView);
+		}
+		else {
+			this.charView.render();
+		}
 	},
 	getCharacter: function(name) {
 		var id = app.Characters.getIdByName(name);
-		
-		if(this.charView.$el.find('#character-select').length === 0){
-			this.charView.render();
-		}
-
+		this.renderCharacterCheck();
 		this.charView.renderViewByModelId(id);
 	},
 	defaultRoute: function(actions) {
 		this.navigate('#/', { trigger: false });
 		
 		this.showView.render();
+	},
+	renderCharacterCheck: function() {
+		if(this.charView.$el.find('#character-select').length === 0){
+			this.charView.render();
+		}
 	}
 });
 
