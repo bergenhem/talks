@@ -6,7 +6,7 @@ var Workspace = Backbone.Router.extend({
 		'*actions' : 'defaultRoute' //http://example.com/#whatever
 	},
 	showView: new app.ShowView(),
-	charView: new app.CharsView(),
+	charView: new app.CharsView({ collection: app.Characters }),
 	show: function() {
 		this.showView.render();
 	},

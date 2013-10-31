@@ -5,9 +5,6 @@ var app = app || {};
 app.CharsView = Backbone.View.extend({
 	el: $('#content'),
 	template: _.template($('#characters-template').html()),
-	initialize: function() {
-		this.characters = app.Characters;
-	},
 	events: {
 		'change #character-select' : 'characterSelected'
 	},
@@ -25,7 +22,7 @@ app.CharsView = Backbone.View.extend({
 	render: function() {
 
 		//Take our template, pass in our characters collection, and render the resulting HTML
-		this.$el.html(this.template({characters: this.characters}));
+		this.$el.html(this.template({characters: this.collection}));
 
 		//best practice is to return the view object
 		return this;
