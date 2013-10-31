@@ -14,7 +14,7 @@ var Workspace = Backbone.Router.extend({
 		this.charView.render();
 	},
 	getCharacter: function(name) {
-		this.charView.render();
+		var id = app.Characters.getIdByName(name);
 	},
 	defaultRoute: function(actions) {
 		this.navigate('#/', { trigger: false });

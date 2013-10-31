@@ -34,6 +34,19 @@ var CharacterList = Backbone.Collection.extend({
 			linkUrl: "http://adventuretime.wikia.com/wiki/BMO"
 		});
 		charsList.add([finn, jake, bmo]);
+	},
+	getIdByName: function(name) {
+		name = name.toLowerCase();
+		switch(name){
+			case 'finn':
+				return 0;
+			case 'jake':
+				return 1;
+			case 'bmo':
+				return 2;
+			default:
+				return 0;
+		}
 	}
 });
 
