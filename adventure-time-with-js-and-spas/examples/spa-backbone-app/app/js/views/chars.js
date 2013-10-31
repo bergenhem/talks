@@ -18,11 +18,11 @@ app.CharsView = Backbone.View.extend({
 
 		var selectedModel = app.Characters.get(selectedID);
 
-		var renderDiv = $('#characterSection');
-		renderDiv.html('');
+		var selectedView = new app.CharView({ model: selectedModel, el: $('#characterSection') });
+		selectedView.render();
+	},
+	renderViewByModelId: function(id) {
 
-		var selectedView = new app.CharView({ model: selectedModel });
-		renderDiv.html(selectedView.render().el);
 	},
 	createCharacters: function(charsList) {
 		var finn = new app.Character({

@@ -10,7 +10,6 @@ app.CharView = Backbone.View.extend({
 		//$el is the jQuery selector of 'el' and allows use to use .html()
 		//also we want to pass in the model to bind our view
 		//this.$el.html(this.template(this.model.toJSON()));
-
 		this.$el.html(this.template(this.model.toJSON()));
 
 		//best practice is to return the view object
