@@ -1,7 +1,7 @@
 var Workspace = Backbone.Router.extend({
 	routes : {
 		'' : 'show', //http://www.example.com/
-		'chars/' : 'getCharacters',
+		'chars/' : 'getCharacters', //http://www.example.com/chars/
 		'chars/:name': 'getCharacter', //http://www.example.com/finn
 		'*actions' : 'defaultRoute' //http://www.example.com/#whatever
 	},
