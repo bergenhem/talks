@@ -49,13 +49,12 @@ var CharacterList = Backbone.Collection.extend({
 		}
 	},
 	getNameById: function(id) {
-		console.log(id);
 		switch(id) {
-			case '0':
+			case 0:
 				return 'finn';
-			case '1':
+			case 1:
 				return 'jake';
-			case '2':
+			case 2:
 				return 'bmo';
 			default:
 				return 'finn';

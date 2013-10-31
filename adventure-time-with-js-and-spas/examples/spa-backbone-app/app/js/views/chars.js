@@ -21,7 +21,7 @@ app.CharsView = Backbone.View.extend({
 		$('#character-select option[value="' + this.selectedView + '"]').prop('selected', true);
 	},
 	renderViewByModelId: function(id) {
-		this.selectedView = id;
+		this.selectedView = parseInt(id);
 
 		this.syncSelectElement(id);
 
