@@ -9,20 +9,19 @@ app.CharsView = Backbone.View.extend({
 		'change #character-select' : 'characterSelected'
 	},
 	characterSelected: function() {
-		var selectedId = this.$('#character-select').val();
-
+		//remove our placeholder text
 		var placeHolder = $('#character-select option[value=""]');
 		if(placeHolder) {
 			placeHolder.remove();
 		}
 
-		var selectedModel = app.Characters.get(selectedId);
-
-		var selectedView = new app.CharView({ model: selectedModel, el: $('#characterSection') });
-		selectedView.render();
+		this.renderViewByModelId(this.$('#character-select').val());
 	},
 	renderViewByModelId: function(id) {
-
+		//get our model, create a view and assign it said model, then render the model
+		var selectedModel = app.Characters.get(id);
+		var selectedView = new app.CharView({ model: selectedModel, el: $('#characterSection') });
+		selectedView.render();
 	},
 	render: function() {
 
