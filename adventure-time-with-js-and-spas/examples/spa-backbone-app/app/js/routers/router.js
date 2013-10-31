@@ -15,6 +15,12 @@ var Workspace = Backbone.Router.extend({
 	},
 	getCharacter: function(name) {
 		var id = app.Characters.getIdByName(name);
+		
+		if(this.charView.$el.find('#character-select').length === 0){
+			this.charView.render();
+		}
+
+		this.charView.renderViewByModelId(id);
 	},
 	defaultRoute: function(actions) {
 		this.navigate('#/', { trigger: false });
