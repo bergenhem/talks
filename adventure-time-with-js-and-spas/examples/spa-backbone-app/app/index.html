@@ -36,7 +36,7 @@
 	<!-- Characters View -->
 	<script type="text/template" id="characters-template">
 		<select id="character-select">
-				<option selected="selected">Select Character...</option>
+				<option value="" selected="selected">Select Character...</option>
 			<% characters.each(function(character) { %>
 				<option value="<%- character.get('id') %>"><%- character.get('name') %></option>
 			<% }); %>
