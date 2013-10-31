@@ -7,6 +7,7 @@ app.Character = Backbone.Model.extend({
 
 	//Set up our models so we always have these fields
 	defaults: {
+		id: '',
 		name: '',
 		species: '',
 		occupation: '',

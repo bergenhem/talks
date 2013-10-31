@@ -3,7 +3,7 @@ var app = app || {};
 
 //Individual Character View
 app.CharView = Backbone.View.extend({
-	el: $('#characterDiv'),
+	//el: $('#characterSection'),
 	template: _.template($('#character-template').html()),
 	//We want to take our template and actually render it in the view
 	render: function() {
