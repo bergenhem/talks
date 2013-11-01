@@ -1,5 +1,5 @@
-<select ng-model="character" ng-options="char.name for char in characters">
-	<option value="">Select Character...</option>
+<select ng-model="character" ng-options="char.name for char in characters" ng-change="selectChange()">
+	<option ng-if="character==null" value="">Select Character...</option>
 </select>
 <h1>{{character.name}}</h1>
 <h2>{{character.species}}</h2>

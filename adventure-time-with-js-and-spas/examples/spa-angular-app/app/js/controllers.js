@@ -5,8 +5,8 @@ sampleAppControllers.controller('ShowController', ['$scope',
 		//TODO: IMPLEMENT
 	}]);
 
-sampleAppControllers.controller('CharacterController', ['$scope', '$routeParams',
-	function CharacterController($scope, $routeParams) {
+sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', '$routeParams',
+	function CharacterController($scope, $rootScope, $routeParams) {
 		if($routeParams.name) {
 			$scope.name = $routeParams.name.toLowerCase();
 		}
@@ -36,4 +36,8 @@ sampleAppControllers.controller('CharacterController', ['$scope', '$routeParams'
 				linkUrl: "http://adventuretime.wikia.com/wiki/BMO"
 			}];
 		$scope.character = null;
+
+		$scope.selectChange = function() {
+			$rootScope.selectedCharacter = $scope.character.id;
+		}
 	}]);
