@@ -1,7 +1,7 @@
 <select ng-model="character" ng-options="char.name for char in characters" ng-change="selectChange()">
 	<option ng-if="character==null" value="">Select Character...</option>
 </select>
-<h1>{{character.name}}</h1>
+<a ng-href="{{character.linkUrl"><h1>{{character.name}}</h1></a>
 <h2>{{character.species}}</h2>
 <h3>{{character.occupation}}</h3>
 <p class="description">{{character.description}}</p>
