@@ -2,9 +2,12 @@ var sampleAppControllers = angular.module('sampleAppControllers', []);
 
 sampleAppControllers.controller('ShowController', ['$scope',
 	function ShowController($scope) {
-		//TODO: IMPLEMENT
+		//we're not doing anything with the Show View in this app
 	}]);
 
+//Set up our CharacterController
+//Notice the setup similar to what we did in app.js for sampleAngularApp
+//the array here sets up our dependency injection for usage in our controller 
 sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', '$filter',
 	'$routeParams', '$location', '$route',
 	function CharacterController($scope, $rootScope, $filter, $routeParams, $location, $route) {
@@ -34,8 +37,11 @@ sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', 
 				linkUrl: "http://adventuretime.wikia.com/wiki/BMO"
 			}];
 
+		//$routeParams contains anything after /char/*
 		if($routeParams.name) {
 			var passedName = $routeParams.name;
+
+			//retrieve our single character
 			$scope.character = $filter('getByName')($scope.characters, passedName);
 		}
 
@@ -43,16 +49,17 @@ sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', 
 			$scope.character = $filter('getByName')($scope.characters, $rootScope.selectedCharacter);
 		}
 
-
+		//the change event of our dropdown
 		$scope.selectChange = function() {
 			$rootScope.selectedCharacter = $scope.character.name;
 			$location.path('/chars/' + $scope.character.name.toLowerCase());
 		}
 
-		//needed to silently update URL - any changes to URL will trigger route
+		//needed to 'silently update' URL - any changes to URL will trigger route
 		var lastRoute = $route.current;
 		$scope.$on('$locationChangeSuccess', function(event) {
 			
+			//ensure that we're only 'silently updating' on the Character View
 			if($route.current.$$route.controller === 'CharacterController') {
 				$route.current = lastRoute;
 			}
