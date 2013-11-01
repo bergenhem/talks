@@ -1,6 +1,6 @@
 {
 	"name": "angular-sample-app",
-	"description": "Sample App Showcasing Angular",
+	"description": "Sample Angular SPA Application",
 	"version": "0.0.1",
 	"private": true,
 	"dependencies": {
