@@ -5,11 +5,9 @@ sampleAppControllers.controller('ShowController', ['$scope',
 		//TODO: IMPLEMENT
 	}]);
 
-sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', '$routeParams',
-	function CharacterController($scope, $rootScope, $routeParams) {
-		if($routeParams.name) {
-			$scope.name = $routeParams.name.toLowerCase();
-		}
+sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', '$filter',
+	'$routeParams', '$location', '$route',
+	function CharacterController($scope, $rootScope, $filter, $routeParams, $location, $route) {
 		$scope.characters = [
 			{
 				id: 0,
@@ -35,9 +33,22 @@ sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', 
 				description: "BMO (phonetically spelled Beemo) is Finn and Jake's living video game console, portable electrical outlet, music player, roommate, camera, alarm clock, toaster, flashlight, strobe light, skateboarder, friend, soccer player, video editor, and video player.",
 				linkUrl: "http://adventuretime.wikia.com/wiki/BMO"
 			}];
-		$scope.character = null;
+
+		if($routeParams.name) {
+			var passedName = $routeParams.name.toLowerCase();
+			$scope.character = $filter('getByName')($scope.characters, passedName);
+		}
+
 
 		$scope.selectChange = function() {
 			$rootScope.selectedCharacter = $scope.character.id;
+			$location.path('/chars/' + $scope.character.name.toLowerCase());
 		}
+
+		//needed to silently update URL - any changes to URL will trigger route
+		var lastRoute = $route.current;
+		$scope.$on('$locationChangeSuccess', function(event) {
+			console.log(event);
+			$route.current = lastRoute;
+		});
 	}]);
