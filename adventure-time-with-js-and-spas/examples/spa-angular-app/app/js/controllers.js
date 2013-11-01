@@ -35,13 +35,17 @@ sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', 
 			}];
 
 		if($routeParams.name) {
-			var passedName = $routeParams.name.toLowerCase();
+			var passedName = $routeParams.name;
 			$scope.character = $filter('getByName')($scope.characters, passedName);
+		}
+
+		if($rootScope.selectedCharacter) {
+			$scope.character = $filter('getByName')($scope.characters, $rootScope.selectedCharacter);
 		}
 
 
 		$scope.selectChange = function() {
-			$rootScope.selectedCharacter = $scope.character.id;
+			$rootScope.selectedCharacter = $scope.character.name;
 			$location.path('/chars/' + $scope.character.name.toLowerCase());
 		}
 
