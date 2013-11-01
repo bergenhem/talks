@@ -48,7 +48,9 @@ sampleAppControllers.controller('CharacterController', ['$scope', '$rootScope', 
 		//needed to silently update URL - any changes to URL will trigger route
 		var lastRoute = $route.current;
 		$scope.$on('$locationChangeSuccess', function(event) {
-			console.log(event);
-			$route.current = lastRoute;
+			
+			if($route.current.$$route.controller === 'CharacterController') {
+				$route.current = lastRoute;
+			}
 		});
 	}]);
