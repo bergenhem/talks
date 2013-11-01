@@ -1,4 +1,7 @@
-<h1>Finn</h1>
-<h2>Species</h2>
-<h3>Occupation</h3>
-<p class="description">Description</p>
+<select ng-model="character" ng-options="char.name for char in characters">
+	<option value="">Select Character...</option>
+</select>
+<h1>{{character.name}}</h1>
+<h2>{{character.species}}</h2>
+<h3>{{character.occupation}}</h3>
+<p class="description">{{character.description}}</p>
