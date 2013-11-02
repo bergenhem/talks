@@ -651,10 +651,66 @@ $('#placeholder').prepend(quickView.el);</code></pre>
 						<h2>Contains data, logic, and states</h2>
 					</section>
 					<section>
-						<h2></h2>
+						<h2>Creates a scope for the parent HTML element</h2>
+						<h2 class="fragment" data-fragment-index="0"><span class="imp">$scope</span> variable</h2>
+					</section>
+					<section>
+						<h2>Sample Controller</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">
+var sampleAppControllers = angular.module('sampleAppControllers', []);
+
+sampleAppControllers.controller('ShowController', ['$scope',
+    function ShowController($scope) {
+        $scope.sampleVariable = 1;
+        $scope.sampleArray = [{
+                fieldOne: 0,
+                fieldTwo: "Test"
+	    },
+            {
+                fieldOne: 1,
+                fieldTwo: "Sample"
+            }]
+        $scope.sampleFunction: function() {
+            //Function logic
+        }
+    }]);
+						</code></pre>	
+					</section>
+					<section>
+						<h2><span class="imp">$scope</span> only available within the HTML element it is defined in</h2>
 					</section>
 					<section>
 						<h1>Directives</h1>
+					</section>
+					<section>
+						<h2>HTML-like attributes</h2>
+					</section>
+					<section>
+						<h2>Declared in view code</h2>
+					</section>
+					<section>
+						<h2>Helps with setting up</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Angular App</li>
+								<li class="fragment" data-fragment-index="1">Controllers and binding</li>
+								<li class="fragment" data-fragment-index="2">Attributes</li>
+								<li class="fragment" data-fragment-index="3">Conditional display</li>
+								<li class="fragment" data-fragment-index="4">Events</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h2>Sample Directives</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">ng-app="appName"</li>
+								<li class="fragment" data-fragment-index="1">ng-controller="SampleCtrl"</li>
+								<li class="fragment" data-fragment-index="2">ng-model="ScopeVar"</li>
+								<li class="fragment" data-fragment-index="3">ng-src="{{scopeUrlVar}}"</li>
+								<li class="fragment" data-fragment-index="4">ng-click="eventHandler()"</li>
+							</ul>
+						</h3>
 					</section>
 					<section>
 						<h1>Routing</h1>
