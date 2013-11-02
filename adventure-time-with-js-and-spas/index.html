@@ -715,6 +715,33 @@ sampleAppControllers.controller('ShowController', ['$scope',
 					<section>
 						<h1>Routing</h1>
 					</section>
+					<section>
+						<h2>Works with URL like you'd think</h2>
+					</section>
+					<section>
+						<h2>Single main view</h2>
+						<h3 class="fragment" data-fragment-index="0">Placeholder element for content</h3>
+					</section>
+					<section>
+						<h2>Load other views via partials</h2>
+						<h3 class="fragment" data-fragment-index="0">Just HTML pages</h3>
+					</section>
+					<section>
+						<h2>Simple structure for routing</h2>
+						<pre><code class="Javascript" style="font-size: 1.25em; padding: 0.75em;">
+var sampleApp = angular.module('sampleApp', [
+    'ngRoute',
+    'myControllers'
+]);;
+
+sampleApp.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.when('/test', { templateUrl: 'partials/test.html', controller: 'TestController' });
+        $routeProvider.when('/sample:id', { templateUrl: 'partials/sample.html', controller: 'SampleController' });
+        $routeProvider.otherwise({ redirectTo: '/' });
+    }]);
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
