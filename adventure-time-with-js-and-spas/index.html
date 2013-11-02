@@ -600,6 +600,9 @@ $('#placeholder').prepend(quickView.el);</code></pre>
 						<h2>Extends HTML vocabulary</h2>
 					</section>
 					<section>
+						<h2>Tries to follow a pure HTML path</h2>
+					</section>
+					<section>
 						<h2>Angular components</h2>
 						<h3>
 							<ul>
@@ -614,16 +617,41 @@ $('#placeholder').prepend(quickView.el);</code></pre>
 						<h1>Expressions</h1>
 					</section>
 					<section>
-						<h2>Simple expressions</h2>
+						<h2>Allows us to bring data to the view</h2>
+					</section>
+					<section>
+						<h2>Uses a simple syntax</h2>
+						<h3><span class="imp">{{ model.FieldName }}</span></h3>
 					</section>
 					<section>
 						<h2>One-way binding</h2>
+						<pre><code class="XML" style="font-size: 1.25em; padding: 0.75em;">
+<div ng-controller="SampleController">
+	<span>{{ character.name }}</span>
+</div>
+						</code></pre>
 					</section>
 					<section>
 						<h2>Two-way binding</h2>
+						<pre><code class="XML" style="font-size: 1.25em; padding: 0.75em;">
+<select ng-model="selectedCharacter">
+	<option value="0">Finn</option>
+	<option value="1">Jake</option>
+	<option value="2">BMO</option>
+</select>
+						</code></pre>	
 					</section>
 					<section>
 						<h1>Controllers</h1>
+					</section>
+					<section>
+						<h2>Central component of Angular apps</h2>
+					</section>
+					<section>
+						<h2>Contains data, logic, and states</h2>
+					</section>
+					<section>
+						<h2></h2>
 					</section>
 					<section>
 						<h1>Directives</h1>
