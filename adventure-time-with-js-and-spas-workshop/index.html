@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Adventure Time with JS &amp; SPAs</title>
+
+		<meta name="description" content="A presentation covering JavaScript Single Page Application frameworks; Specifically Backbone, Angular, and Kendo UI.">
+		<meta name="author" content="Carl Bergenhem">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/nightish.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+				<section>
+					<h1>Adventure Time</h1>
+					<h3>with</h3>
+					<h3>JavaScript &amp; Single Page Apps</h3>
+					<p>
+						<a href="http://bergenhem.github.io">Carl Bergenhem</a> - Web Unleashed 2013 - <a href="http://www.twitter.com/carlbergenhem">@carlbergenhem</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>Introductions</h2>
+					<p class="fragment" data-fragment-index="0">
+						Carl Bergenhem
+					</p>
+					<p class="fragment" data-fragment-index="1">
+						Manager, Solutions Consultants
+					</p>
+					<p class="fragment" data-fragment-index="2">
+						<a href="http://www.telerik.com">Telerik</a>
+					</p>
+					<p class="fragment" data-fragment-index="3">
+						<a href="http://www.twitter.com/carlbergenhem">@carlbergenhem</a>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h1>Quick Notes</h1>
+					</section>
+					<section>
+						<h2>Covering a lot of ground today</h2>
+					</section>
+					<section>
+						<h2>High level overview</h2>
+					</section>
+					<section>
+						<h2>More code in tomorrow's workshop</h2>
+						<h3><span class="fragment imp" data-fragment-index="0">9 AM - 12:30 PM @ Room 325 BC</span></h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>What is a SPA?</h1>
+					</section>
+					<section>
+						<h2>Single Page Application</h2>
+					</section>
+					<section>
+						<h2>A web app that fits in a single page</h2>
+					</section>
+					<section>
+						<h2>Entire app is loaded at once</h2>
+					</section>
+					<section>
+						<h2>Built with a MV* Framework</h2>
+					</section>
+					<section>
+						<h2>Server provides the initial app</h2>
+					</section>
+					<section>
+						<h2>Section our HTML page in views</h2>
+					</section>
+					<section>
+						<h2>Get data via RESTful requests</h2>
+					</section>
+					<section>
+						<h2>Bind the data to our UI</h2>
+					</section>
+					<section>
+						<h2>Business logic in our MV* framework</h2>
+					</section>
+					<section>
+						<h2>MV* framework handles URL requests</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Why SPA?</h1>
+					</section>
+					<section>
+						<h2>Create desktop-like apps in the web</h2>
+					</section>
+					<section>
+						<h2>Increase responsiveness</h2>
+					</section>
+					<section>
+						<h2>Reduce loadtime of pages</h2>
+					</section>
+					<section>
+						<h2>Less time spent on the server</h2>
+					</section>
+					<section>
+						<h2>Control user interactions on the client</h2>
+					</section>
+					<section>
+						<h2>Improved end-user experience</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>History</h1>
+					</section>
+					<section>
+						<h1>In the Beginning</h1>
+						<h2 class="fragment" data-fragment-index="0">Reign of the post back</h2>
+					</section>
+					<section>
+						<h2>Everything done on the server</h2>
+					</section>
+					<section>
+						<h2>Full page refreshes</h2>
+					</section>
+					<section>
+						<h1>We got wiser</h1>
+						<h2 class="fragment" data-fragment-index="0">Ajax &amp; XHR Requests</h2>
+					</section>
+					<section>
+						<h2>Serve some content via server</h2>
+					</section>
+					<section>
+						<h2>Do asynchronous calls to server</h2>
+					</section>
+					<section>
+						<h2>Partial page refreshes</h2>
+					</section>
+					<section>
+						<h1>Focus on responsiveness</h1>
+						<h2 class="fragment" data-fragment-index="0">Introduce the SPA concept</h2>
+					</section>
+					<section>
+						<h2>Move all items over to the client</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>What makes up a SPA?</h1>
+					</section>
+					<section>
+						<h2>MV* Framework</h2>
+					</section>
+					<section>
+						<h2>Basic pieces of a MV*</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Model</li>
+								<li class="fragment" data-fragment-index="1">View</li>
+								<li class="fragment" data-fragment-index="2"><span class="imp">*</span></li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h2>A full SPA framework also has</h2>
+						<h3 class="fragment" data-fragment-index="0">Routing</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Model</h1>
+					</section>
+					<section>
+						<h2>In charge of holding data</h2>
+					</section>
+					<section>
+						<h2>Communication with server</h2>
+					</section>
+					<section>
+						<h2>Work with server end-points</h2>
+					</section>
+					<section>
+						<h2>Define what data should be used</h2>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1>Controller</h1>
+					</section>
+					<section>
+						<h2>Control applications'</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">State</li>
+								<li class="fragment" data-fragment-index="1">Logic</li>
+								<li class="fragment" data-fragment-index="2">Behavior</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h2>Custom business logic</h2>
+					</section>
+					<section>
+						<h2>Communicate between the View and Model</h2>
+					</section>
+					<section>
+						<h2>Provide validation</h2>
+					</section>
+					<section>
+						<h2>Bind data to our Views (UI)</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>View</h1>
+					</section>
+					<section>
+						<h2>Responsible for the UI of our app</h2>
+					</section>
+					<section>
+						<h2>Modifies and interacts with our DOM</h2>
+					</section>
+					<section>
+						<h2>Main point of interaction from users</h2>
+					</section>
+					<section>
+						<h2>Bound to the controller for data and events</h2>
+					</section>
+					<section>
+						<h2>Often works with a template engine</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Router</h1>
+					</section>
+					<section>
+						<h2>Responds to URL changes via JavaScript</h2>
+					</section>
+					<section>
+						<h2>Changes between various views</h2>
+					</section>
+					<section>
+						<h2>Browser initiated routes</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Type in a URL</li>
+								<li class="fragment" data-fragment-index="1">Hyperlink</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h2>Client initiated routes</h2>
+					</section>
+					<section>
+						<h2>Change from one page or a view to another</h2>
+					</section>
+					<section>
+						<h2>Utilizes hash fragments</h2>
+						<pre>
+							<code class="string" style="font-size: 2em; padding: 0.75em;">http://myurl.com/#/products/</code>
+						</pre>
+					</section>
+					<section>
+						<h2>JS rights to modify page URL</h2>
+						<h3 class="fragment" data-fragment-index="1">Anything after <span class="imp">'#'</span> is fair game</h3>
+					</section>
+					<section>
+						<h2>Just like the anchor tag</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Examples</h1>
+					</section>
+					<section>
+						<h2>Wild SPA Apps</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Gmail</li>
+								<li class="fragment" data-fragment-index="1">Facebok</li>
+								<li class="fragment" data-fragment-index="2">Twitter</li>
+								<li class="fragment" data-fragment-index="3">Trello</li>
+								<li class="fragment" data-fragment-index="4">Asana</li>
+							</ul>
+						</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Popular MV* Frameworks</h1>
+					</section>
+					<section>
+						<h3>
+							<ul>
+								<li>Backbone</li>
+								<li class="fragment" data-fragment-index="0">Angular</li>
+								<li class="fragment" data-fragment-index="1">Kendo UI</li>
+								<li class="fragment" data-fragment-index="2">Ember</li>
+								<li class="fragment" data-fragment-index="3">Durandal</li>
+								<li class="fragment" data-fragment-index="4">Meteor</li>
+							</ul>
+						</h3>
+					</section>
+				</section>
+
+				<section>
+					<h1>Today's Focus</h1>
+					<h2 class="fragment" data-fragment-index="0">Backbone</h2>
+					<h2 class="fragment" data-fragment-index="1">Angular</h2>
+					<h2 class="fragment" data-fragment-index="2">Kendo UI</h2>
+				</section>
+
+				<section>
+					<section>
+						<h1>Backbone</h1>
+					</section>
+					<section>
+						<h2>Light-weight library</h2>
+					</section>
+					<section>
+						<h2>The basic foundation</h2>
+					</section>
+					<section>
+						<h2>Not a ton of extra frills</h2>
+					</section>
+					<section>
+						<h2>Heavy lifting is up to you</h2>
+					</section>
+					<section>
+						<h2>Huge community for tooling</h2>
+					</section>
+					<section>
+						<h2>Offers a set of helpful classes</h2>
+					</section>
+					<section>
+						<h2>Each one can</h2>
+						<h2>- and will be -</h2>
+						<h2>extended</h2>
+					</section>
+					<section>
+						<h2>Backbone main classes</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Model</li>
+								<li class="fragment" data-fragment-index="1">Collection</li>
+								<li class="fragment" data-fragment-index="2">View</li>
+								<li class="fragment" data-fragment-index="3">Router</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h1>Model</h1>
+					</section>
+					<section>
+						<h2>Deals with all of our data</h2>
+					</section>
+					<section>
+						<h2>Bound to a view</h2>
+					</section>
+					<section>
+						<h2>Syncs back to our server</h2>
+					</section>
+					<section>
+						<h2>Backbone.Model</h2>
+						<pre><code class="JavaScript" style="font-size: 2em; padding: 0.75em;">var myModel = new Backbone.Model({});</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Extend Method</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var Character = Backbone.Model.extend({
+							defaults: {
+	    name: 'Blanks',
+	    species: 'Human',
+	    description: 'No description yet.'
+	},
+	initialize: function() {
+	    console.log('New character created');
+	}
+});
+
+var jake = new Character({
+	name: 'Jake the Dog',
+	species: 'Dog',
+	description: 'A magical dog. Best friend, and brother, with Finn.'
+});
+</code></pre>
+					</section>
+					<section>
+						<h2>Use get() or set() to change data</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var finn = new Character({ name: 'Finn the Human' });
+
+finn.set({ species: 'Human' });
+
+var name = finn.get('name'); //Finn the Human
+</code></pre>
+					</section>
+					<section>
+						<h1>Collections</h1>
+					</section>
+					<section>
+						<h2>Group related models together</h2>
+					</section>
+					<section>
+						<h2>Methods for adding/removing models</h2>
+					</section>
+					<section>
+						<h2>Simple array-like object</h2>
+					</section>
+					<section>
+						<h2>Backbone.Collection</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var Character = Backbone.Model.extend({
+							defaults: {
+	    name: 'Blanks',
+	    species: 'Human',
+	    description: 'No description yet.'
+	},
+	initialize: function() {
+	    console.log('New character created');
+	}
+});
+
+var Cast = Backbone.Collection.extend({
+	model: Character
+});
+
+var jake = new Character({
+	name: 'Jake the Dog',
+	species: 'Dog',
+	description: 'A magical dog. Best friend, and brother, with Finn.'
+});
+
+var finn = new Character({
+	name: 'Finn the Human',
+	species: 'Human',
+	description: 'The last human in the Land of Ooo. Hangs out with Jake.'
+});
+
+var castList = new Cast([ jake, finn ]);
+
+console.log(castList.models);
+</code></pre>
+					</section>
+					<section>
+						<h1>View</h1>
+					</section>
+					<section>
+						<h2>The link between models and the UI</h2>
+					</section>
+					<section>
+						<h2>Renders the models and their data</h2>
+					</section>
+					<section>
+						<h2>Views are bound to models or collections</h2>
+					</section>
+					<section>
+						<h2>Receives events from the Model and HTML document</h2>
+					</section>
+					<section>
+						<h2>The 'el' property</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Every view has an 'el' property</li>
+								<li class="fragment" data-fragment-index="1">If not defined, a blank div is created</li>
+								<li class="fragment" data-fragment-index="2">References the view's DOM object</li>
+								<li class="fragment" data-fragment-index="3">Pass in a HTML element to modify it</li>
+								<li class="fragment" data-fragment-index="4">Can be a jQuery object via $el</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h2>Backbone.View</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var FinnView = Backbone.View.extend({
+	tagName: 'div',
+	id: 'finnDiv',
+	className: 'finnClass',
+	attributes: {
+		'data-custom': 12345
+	}
+});
+
+var quickView = new FinnView();
+
+$('#placeholder').prepend(quickView.el);</code></pre>
+					</section>
+					<section>
+						<h2>Resulting HTML</h2>
+						<pre><code class="XML" style="font-size: 1.25em; padding: 0.75em;"><div data-custom="12345" id="sampleDiv" class="sampleClass"></div></code></pre>
+					</section>
+					<section>
+						<h2>Default templates by Underscore</h2>
+						<a href="http://jsbin.com/IWewESE/8/edit" target="_blank">jsBin.com/IWewESE/8/</a>
+					</section>
+					<section>
+						<h1>Router</h1>
+					</section>
+					<section>
+						<h2>Use of hash fragments</h2>
+						<pre>
+							<code class="string" style="font-size: 2em; padding: 0.75em;">http://myurl.com/#/characters/</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Parses URL and finds appropriate function</h2>
+					</section>
+					<section>
+						<h2>Uses HTML5 History API if possible</h2>
+					</section>
+					<section>
+						<h2>Backbone.Router</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var SampleRouter = Backbone.Router.extend({
+	routes: {
+		'character/:name': 'character' //route pattern : handler name
+	},
+	character: function(name) { //handler
+	    //...
+	}
+});</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Backbone Summary</h1>
+					</section>
+					<section>
+						<h2>Barebones tools to build our app</h2>
+					</section>
+					<section>
+						<h2>Emphasis on data and Models</h2>
+					</section>
+					<section>
+						<h2>Not a ton of tools for the View</h2>
+					</section>
+					<section>
+						<h2>.extend({}) everything</h2>
+					</section>
+					<section>
+						<h2>Backbone main classes</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Model</li>
+								<li class="fragment" data-fragment-index="1">Collection</li>
+								<li class="fragment" data-fragment-index="2">View</li>
+								<li class="fragment" data-fragment-index="3">Router</li>
+							</ul>
+						</h3>	
+					</section>
+					<section>
+						<h2>Model deals with all of our data</h2>
+					</section>
+					<section>
+						<h2>A collection has multiple Models</h2>
+					</section>
+					<section>
+						<h2>View needs a Model</h2>
+						<h2>Works with Model and DOM</h2>
+					</section>
+					<section>
+						<h2>Router works with URL to serve correct View</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Angular</h1>
+					</section>
+					<section>
+						<h2>Created by Google</h2>
+					</section>
+					<section>
+						<h2>Believes HTML can be more powerful</h2>
+					</section>
+					<section>
+						<h2>Extends HTML vocabulary</h2>
+					</section>
+					<section>
+						<h2>Tries to follow a pure HTML path</h2>
+					</section>
+					<section>
+						<h2>Angular components</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Expressions</li>
+								<li class="fragment" data-fragment-index="1">Controllers</li>
+								<li class="fragment" data-fragment-index="2">Directives</li>
+								<li class="fragment" data-fragment-index="3">Routing</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h1>Expressions</h1>
+					</section>
+					<section>
+						<h2>Allows us to bring data to the view</h2>
+					</section>
+					<section>
+						<h2>Uses a simple syntax</h2>
+						<h3><span class="imp">{{ model.FieldName }}</span></h3>
+					</section>
+					<section>
+						<h2>One-way binding</h2>
+						<pre><code class="XML" style="font-size: 1.25em; padding: 0.75em;">
+<div ng-controller="SampleController">
+	<span>{{ character.name }}</span>
+</div>
+						</code></pre>
+					</section>
+					<section>
+						<h2>Two-way binding</h2>
+						<pre><code class="XML" style="font-size: 1.25em; padding: 0.75em;">
+<select ng-model="selectedCharacter">
+	<option value="0">Finn</option>
+	<option value="1">Jake</option>
+	<option value="2">BMO</option>
+</select>
+						</code></pre>	
+					</section>
+					<section>
+						<h1>Controllers</h1>
+					</section>
+					<section>
+						<h2>Central component of Angular apps</h2>
+					</section>
+					<section>
+						<h2>Contains data, logic, and states</h2>
+					</section>
+					<section>
+						<h2>Creates a scope for the HTML element</h2>
+						<h2 class="fragment" data-fragment-index="0"><span class="imp">$scope</span> variable</h2>
+					</section>
+					<section>
+						<h2>Sample Controller</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">
+var sampleAppControllers = angular.module('sampleAppControllers', []);
+
+sampleAppControllers.controller('ShowController', ['$scope',
+    function ShowController($scope) {
+        $scope.sampleVariable = 1;
+        $scope.sampleArray = [{
+                fieldOne: 0,
+                fieldTwo: "Test"
+	    },
+            {
+                fieldOne: 1,
+                fieldTwo: "Sample"
+            }]
+        $scope.sampleFunction: function() {
+            //Function logic
+        }
+    }]);
+						</code></pre>	
+					</section>
+					<section>
+						<h2><span class="imp">$scope</span> only available within the HTML element it is defined in</h2>
+					</section>
+					<section>
+						<h1>Directives</h1>
+					</section>
+					<section>
+						<h2>HTML-like attributes</h2>
+					</section>
+					<section>
+						<h2>Declared in view code</h2>
+					</section>
+					<section>
+						<h2>Helps with setting up</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Angular App</li>
+								<li class="fragment" data-fragment-index="1">Controllers and binding</li>
+								<li class="fragment" data-fragment-index="2">Attributes</li>
+								<li class="fragment" data-fragment-index="3">Conditional display</li>
+								<li class="fragment" data-fragment-index="4">Events</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h2>Sample Directives</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">ng-app="appName"</li>
+								<li class="fragment" data-fragment-index="1">ng-controller="SampleCtrl"</li>
+								<li class="fragment" data-fragment-index="2">ng-model="ScopeVar"</li>
+								<li class="fragment" data-fragment-index="3">ng-src="{{scopeUrlVar}}"</li>
+								<li class="fragment" data-fragment-index="4">ng-click="eventHandler()"</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h1>Routing</h1>
+					</section>
+					<section>
+						<h2>Works with URL like you'd think</h2>
+					</section>
+					<section>
+						<h2>Single main view</h2>
+						<h3 class="fragment" data-fragment-index="0">Placeholder element for content</h3>
+					</section>
+					<section>
+						<h2>Load other views via partials</h2>
+						<h3 class="fragment" data-fragment-index="0">Just HTML pages</h3>
+					</section>
+					<section>
+						<h2>Simple structure for routing</h2>
+						<pre><code class="Javascript" style="font-size: 1.25em; padding: 0.75em;">
+var sampleApp = angular.module('sampleApp', [
+    'ngRoute',
+    'myControllers'
+]);;
+
+sampleApp.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.when('/test', { templateUrl: 'partials/test.html', controller: 'TestController' });
+        $routeProvider.when('/sample:id', { templateUrl: 'partials/sample.html', controller: 'SampleController' });
+        $routeProvider.otherwise({ redirectTo: '/' });
+    }]);
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Angular Summary</h1>
+					</section>
+					<section>
+						<h2>Extension of HTML</h2>
+					</section>
+					<section>
+						<h2>Empowering your regular HTML code</h2>
+					</section>
+					<section>
+						<h2>Controllers rule all</h2>
+					</section>
+					<section>
+						<h2>Data can be bound one- or two-way</h2>
+					</section>
+					<section>
+						<h2>DOM manipulation via controller</h2>
+						<h3 class="fragment" data-fragment-index="0">Drop that jQuery ;)</h3>
+					</section>
+					<section>
+						<h2>Directives are extremely helpful</h2>
+						<h3 class="fragment" data-fragment-index="0">Wire upp events and such</h3>
+					</section>
+					<section>
+						<h2>Routers use partials of HTML</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Kendo UI</h1>
+					</section>
+					<section>
+						<h2>Part of Kendo UI Web</h2>
+					</section>
+					<section>
+						<h2>Combine SPA and MVVM Frameworks</h2>
+					</section>
+					<section>
+						<h2>Additional helpful items</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Template engine</li>
+								<li class="fragment" data-fragment-index="1">Effects and animations</li>
+								<li class="fragment" data-fragment-index="2">UI widgets</li>
+								<li class="fragment" data-fragment-index="3">Charts and gauges</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h2>Tooling across all parts of your SPA</h2>
+					</section>
+					<section>
+						<h2>Kendo UI key pieces</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Observable</li>
+								<li class="fragment" data-fragment-index="1">View</li>
+								<li class="fragment" data-fragment-index="2">Layout</li>
+								<li class="fragment" data-fragment-index="3">Router</li>
+							</ul>
+						</h3>
+					</section>
+					<section>
+						<h1>Observable</h1>
+					</section>
+					<section>
+						<h2>Part of the Kendo UI MVVM framework</h2>
+					</section>
+					<section>
+						<h2>All fields are observable</h2>
+					</section>
+					<section>
+						<h2>All changes will propogate</h2>
+					</section>
+					<section>
+						<h2>kendo.observable</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var finnModel = kendo.observable({
+	name: 'Finn the Human',
+	species: 'Human',
+	description: 'The last human in the Land of Ooo. Hangs out with Jake.'
+});
+</code></pre>
+					</section>
+					<section>
+						<h2>Use get() or set() with fields</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var finnModel = kendo.observable({
+	name: 'Finn the Human',
+	species: 'Dog',
+	description: 'The last human in the Land of Ooo. Hangs out with Jake.'
+});
+
+finnModel.set('species', 'Human');
+
+var species = finnModel.get('species'); //Human
+</code></pre>
+					</section>
+					<section>
+						<h1>View</h1>
+					</section>
+					<section>
+						<h2>Can be defined with simple HTML string</h2>
+					</section>
+					<section>
+						<h2>Works with Kendo UI templates</h2>
+					</section>
+					<section>
+						<h2>Tie in with our observables to create data bound UI</h2>
+					</section>
+					<section>
+						<h2>kendo.View()</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var index = new kendo.View('<span>Adventure Time!</span>');
+
+index.render('#placeholder');
+</code></pre>
+					</section>
+					<section>
+						<h2>With Kendo UI Templates and Observables</h2>
+						<a href="http://jsbin.com/imAnimo/5/edit" target="_blank">jsbin.com/imAnimo/5/</a>
+					</section>
+					<section>
+						<h1>Layout</h1>
+					</section>
+					<section>
+						<h2>Provides a layout for views to adhere to</h2>
+					</section>
+					<section>
+						<h2>MasterPages for you .NET folks</h2>
+					</section>
+					<section>
+						<h2>Easily display views in content section</h2>
+					</section>
+					<section>
+						<h2>Can also be nested</h2>
+					</section>
+					<section>
+						<h2>kendo.Layout</h2>
+						<pre><code class="JavaScript style="font-size: 1.25em; padding: 0.75em;"">var view = new Kendo.View('<span>Finn the Human</span>');
+
+var layout = new kendo.Layout('<header>Header</header><div id="content"></div><footer>Footer</footer>');
+
+layout.render($('#app'));
+
+layout.showIn('#content', view);
+</code></pre>
+					</section>
+					<section>
+						<h1>Router</h1>
+					</section>
+					<section>
+						<h2>Responsible for application state</h2>
+					</section>
+					<section>
+						<h2>Navigate between views</h2>
+					</section>
+					<section>
+						<h2>Use of hash fragments</h2>
+						<pre>
+							<code class="string" style="font-size: 2em; padding: 0.75em;">http://myurl.com/#/characters/</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Can programmatically navigate</h2>
+					</section>
+					<section>
+						<h2>Use with Layout to show new content</h2>
+					</section>
+					<section>
+						<h2>kendo.Router()</h2>
+						<pre><code class="JavaScript" style="font-size: 1.25em; padding: 0.75em;">var router = new kendo.Router();
+router.route('/', function () {
+	layout.showIn('#content', homeView);
+});
+
+router.route('/character', function () {
+	layout.showIn('#content', characterView);
+});
+
+$(function() {
+	router.start(); //very important
+
+	router.navigate('/character');
+});
+</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Kendo UI Summary</h1>
+					</section>
+					<section>
+						<h2>Tools across the board</h2>
+					</section>
+					<section>
+						<h2>Classes for dealing with data</h2>
+					</section>
+					<section>
+						<h2>Helpful UI and View classes</h2>
+					</section>
+					<section>
+						<h2>Large set of UI widgets</h2>
+					</section>
+					<section>
+						<h2>Kendo UI SPA key items</h2>
+						<h3>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Observable</li>
+								<li class="fragment" data-fragment-index="1">View</li>
+								<li class="fragment" data-fragment-index="2">Layout</li>
+								<li class="fragment" data-fragment-index="3">Router</li>
+							</ul>
+						</h3>
+					</section>
+				</section>
+
+				<section>
+					<h1>The End</h1>
+					<p>Thanks for attending!</p>
+					<p><a href="http://www.twitter.com/carlbergenhem">@carlbergenhem</a></p>
+					<p><a href="http://github.com/bergenhem/talks">github.com/bergenhem/talks</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

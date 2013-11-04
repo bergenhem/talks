@@ -1,0 +1,10 @@
+{
+	"name": "angular-sample-app",
+	"description": "Sample App Showcasing Angular",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies": {
+		"express": "latest",
+		"ejs": "latest"
+	}
+}
